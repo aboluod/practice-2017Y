@@ -1,0 +1,13 @@
+.container{width:600px;height:370px;margin:50px auto;position:relative;}
+.container .box li{position:absolute;top:0;left:0;display:none;}
+.container li img{width:600px;height:370px;}
+/*轮播图上的小圈*/
+.container .circle{position:absolute;bottom:20px;left:0;text-align:center;width:100%;box-sizing:border-box;font-size:0;/*font-size:0的作用是消除每个li之间的距离*/}
+.container .circle li{width:20px;height:20px;background:#666;color:#fff;text-align:center;line-height:20px;border-radius:50%;display:inline-block;font-size:16px;cursor:pointer;margin:0 3px;}
+.container .circle li.active{background-color:#a00;}
+/*左右按钮*/
+.container .btn{width:30px;height:60px;position:absolute;top:50%;margin-top:-30px;background:rgba(0,0,0,.5);color:#fff;text-align:center;line-height:60px;font-size:40px;display:none;cursor:pointer;}
+.container:hover .btn{display:block;}
+.container .left{left:0;}
+.container .right{right:0;}
+

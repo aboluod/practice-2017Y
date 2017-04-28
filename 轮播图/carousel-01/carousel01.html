@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>京东首页轮播图效果（海贼王图片）</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/carousel01.css">
+</head>
+<body>
+    <div class="container">
+        <ul class="box">
+            <li><a href="#"><img src="images/hz00.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/hz01.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/hz02.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/hz03.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/hz04.jpg" alt=""></a></li>
+        </ul>
+        <!--轮播图上的小圈-->
+        <ul class="circle">
+        </ul>
+        <!--向左、向右按钮-->
+        <div class="btn left"><</div>
+        <div class="btn right">></div>
+    </div>
+
+
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+        var size = $('.box li').size();//获得轮播图的数量；
+                                        // size()函数输出被 jQuery 选择器匹配的元素的数量
+                                        //jquery中size()和length的区别：
+                                        //size()是jQuery提供的函数，而length是属性（不带括号），size()只能在jQuery下使用，                                              length是属性，定义在dom和javascript中，不使用jQuery也可以使用
+
+        //根据轮播图的数量，循环生成对应个数的轮播图小圈
+        for(var i=1;i<=size;i++){
+            var li = '<li>'+i+'</li>';
+            $('.circle').append(li);
+        }
+
+        //手动控制轮播图
+        $('.box li').eq(0).show();//第一张图显示
+        $('.circle li').eq(0).addClass('active');//第一个小圈添加active类
+        $('.circle li').mouseover(function(){
+            $(this).addClass('active').siblings().removeClass('active');
+            var index = $(this).index();//获取鼠标移动到的小圈的索引
+            i = index;
+            $('.box li').eq(index).stop().fadeIn(300).siblings().stop().fadeOut(300);
+        })
+        //左边按钮点击事件
+        $('.container .left').click(function(){
+            moveL();
+        });
+        //左边按钮点击事件
+        $('.container .right').click(function(){
+            moveR();
+        });
+
+
+        //自动轮播
+        var i = 0;
+        var t = setInterval(moveR,3000);
+        //定时器的开始与结束
+        $('.container').hover(function(){
+            clearInterval(t);
+        },function(){
+            t = setInterval(moveR,3000);
+        })
+
+        //核心向左运动函数
+        function moveL(){
+            i--;
+            if(i==-1){
+                i=size-1;//如果轮播图在第一张即i=0时点击向左按钮的话，就让显示最后一张轮播图即size-1,因为索引是从0开始
+            }
+            $('.circle li').eq(i).addClass('active').siblings().removeClass('active');
+            $('.box li').eq(i).fadeIn(300).siblings().fadeOut(300);
+        }
+        //核心向右运动函数
+        function moveR(){
+            i++;
+            if(i==size){
+                i=0;//如果轮播图在最后一张即i=size时点击向右按钮的话，就让显示第一张轮播图即0,因为索引是从0开始
+            }
+            $('.circle li').eq(i).addClass('active').siblings().removeClass('active');
+            $('.box li').eq(i).fadeIn(300).siblings().fadeOut(300);
+        }
+    </script>
+</body>
+</html>
