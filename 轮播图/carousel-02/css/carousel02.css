@@ -1,1 +1,2 @@
-
+.container{margin:100px auto;border:5px solid #000;width:1080px;height:500px;}
+.container .box li img{width:1080px;height:500px;}
