@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>淘宝首页轮播图效果（火影忍者图片）</title>
+    <title>淘宝首页轮播图效果（火影忍者图片）（也叫无缝轮播）</title>
     <link rel="stylesheet" href="../../normalize.css">
     <link rel="stylesheet" href="css/carousel02.css">
 </head>
@@ -22,8 +22,83 @@
         <!--banner轮播小圈-->
         <ul class="circle"></ul>
         <!--左右按钮-->
-        <!--<div class="btn btn_l">&lt;</div>-->
-        <!--<div class="btn btn_r">&gt;</div>-->
+        <div class="btn btn_l">&lt;</div>
+        <div class="btn btn_r">&gt;</div>
     </div>
+
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+        ($(function(){
+            var i = 0;
+            //无缝轮播看起来是不间断的，实际上是在最后一张banner图的后面加了第一张banner图，所以这里用clone方法，把第一个banner克隆在
+            //最后一张的后面
+            var clone = $('.container .box li').first().clone();
+            $('.container .box').append(clone);
+            //获取banner图的数量
+            var size = $('.container .box li').size();
+            //根据banner图数量循环出来小圈
+            for(var j = 0;j < size-1;j++){
+                $('.container .circle').append('<li></li>');
+            }
+            //第一个小圈默认是active状态
+            $('.container .circle li').first().addClass('active');
+
+           //鼠标移入小圈
+            $('.container .circle li').hover(function(){
+                var index = $(this).index();
+                i = index;
+                //根据鼠标移动到哪个小圈，显示对应小圈index的banner图，banner图的index和小圈的index是相同的
+                //无缝轮播的原理就是banner图向左或者向右滑动
+                $('.container .box').stop().animate({left:-index*1080},500);
+                $(this).addClass('active').siblings().removeClass('active');
+            })
+
+            //自动轮播
+            var t = setInterval(function(){
+                i++;
+                move()
+            },2000)
+
+            //对banner定时器的操作
+            $('.container').hover(function(){
+                //当鼠标移入banner区域的时候，就不让自动轮播了，所以要清楚定时器
+                clearInterval(t);
+            },function(){
+                t = setInterval(function(){
+                    i++;
+                    move();
+                },2000)
+            })
+
+            //向左的按钮
+            $('.container .btn_l').click(function(){
+                i++;
+                move();
+            })
+            //向右的按钮
+            $('.container .btn_r').click(function(){
+                i--;
+                move();
+            })
+
+            //move方法
+            function move(){
+                if(i == size){
+                    $('.container .box').css({left:0});
+                    i = 1;
+                }
+                if(i == -1){
+                    $('.container .box').css({left:-(size-1)*1080});
+                    i = size-2;
+                }
+                $('.container .box').stop().animate({left:-i*1080},500);
+                if(i == size-1){
+                    $('.container .circle li').eq(0).addClass('active').siblings().removeClass('active');
+                }else{
+                    $('.container .circle li').eq(i).addClass('active').siblings().removeClass('active');
+                }
+            }
+        }))()
+    </script>
 </body>
 </html>

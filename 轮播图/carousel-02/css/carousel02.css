@@ -1,2 +1,13 @@
-.container{margin:100px auto;border:5px solid #000;width:1080px;height:500px;}
+.container{margin:100px auto;border:5px solid #000;width:1080px;height:500px;overflow:hidden;position:relative;}
+.container .box{width:7000px;position:absolute;left:0;top:0;}
+.container .box li{float:left;}
 .container .box li img{width:1080px;height:500px;}
+/*小圆圈样式*/
+.container .circle{position:absolute;width:100%;bottom:10px;left:0;text-align:center;font-size:0;}
+.container .circle li{width:10px;height:10px;background:#888;border-radius:50%;display:inline-block;margin:0 3px;cursor:pointer;}
+.container .circle li.active{background-color:#f60;}
+/*按钮样式*/
+.container .btn{width:40px;height:70px;background:rgba(0,0,0,.5);position:absolute;top:50%;margin-top:-35px;cursor:pointer;text-align:center;line-height:70px;color:#fff;font-size:40px;font-family:"宋体";display:none;}
+.container:hover .btn{display:block;}
+.container .btn_l{left:0;}
+.container .btn_r{right:0;}
