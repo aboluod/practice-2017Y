@@ -1,0 +1,9 @@
+职业规划
+1，必须有两套完整的项目；
+
+长期学习任务
+1，vue.js(用vue试着写一个后台系统页面)
+2,node.js
+3,webpack
+4,sass、less
+5,canvas、svg
