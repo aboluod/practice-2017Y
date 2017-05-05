@@ -83,10 +83,14 @@
 
             //move方法
             function move(){
+                //i==size即是从banner图最后一张（复制的第一张banner图），进入第二张banner图的时候
                 if(i == size){
+                    //使用css迅速把banner盒子拉到第一张banner图的位置，这个动作是肉眼看不到的，然后让i=1即第二张banner图的索引，因为i=size就是轮播图进入到第二张
                     $('.container .box').css({left:0});
                     i = 1;
                 }
+
+                //当i==-1时即是从第一张到第五张的切换，先用css把banner盒子迅速拉到第六张banner图（这个图是复制第一张图的。所以显示的和第一张图一样，用css迅速拉的动作是肉眼看不到的），然后让i等于第五张轮播图的索引
                 if(i == -1){
                     $('.container .box').css({left:-(size-1)*1080});
                     i = size-2;
