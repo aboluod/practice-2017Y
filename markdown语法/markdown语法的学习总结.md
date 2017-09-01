@@ -19,4 +19,4 @@
 部分文字`高亮`显示
 
 <!-- 文字超链接 -->
-[星之灵](http://www.fosunling.com)
+[星之灵](http://www.fosunling.com "复星星灵")
