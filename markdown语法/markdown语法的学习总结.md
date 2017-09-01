@@ -60,7 +60,4 @@
 <!-- 插入github项目里的图片 -->
 ![插入github项目里的图片]( https://github.com/zhBoSir/practice-2017Y/raw/master/markdown语法/images/1.png)
 <!-- 给图片加上超链接 -->
-[![baidu]:http://www.baidu.com/img/bdlogo.gif "百度Logo"](http://www.baidu.com)
-[baidu]:http://www.baidu.com/img/bdlogo.gif "百度Logo"
 [![baidu](http://www.baidu.com/img/bdlogo.gif "百度Logo")](http://baidu.com)  
-[baidu]:http://www.baidu.com/img/bdlogo.gif "百度Logo" 
