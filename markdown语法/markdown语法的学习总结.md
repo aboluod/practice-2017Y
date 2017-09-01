@@ -38,3 +38,5 @@
 
 <!-- 插入图片，实现方法叹号! + 方括号[ ] + 括号( ) 其中括号里是图片的URL -->
 ![baidu](http://www.baidu.com/img/bdlogo.gif)
+<!-- 插入github项目里的图片 -->
+![插入github项目里的图片]( https://github.com/zhBoSir/practice-2017Y/raw/master/markdown语法/images/1.png)
