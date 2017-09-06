@@ -3,6 +3,12 @@
 <!-- https://github.com/guodongxiaren/README -->
 <!-- http://www.jianshu.com/p/1e402922ee32/ -->
 
+<!-- 工具 -->
+<!-- 
+在线好用的Markdown工具，为印象笔记而生
+马克飞象，专为印象笔记打造的Markdown编辑器，非常推荐
+ -->
+
 
 
 <!-- =上面的文本是大标题，=个数无限制 -->
@@ -98,20 +104,5 @@
 
 
 
-<!-- 代码块 -->
-`textarea {
-    color: @color-text-base;
-    font-size: @font-size-heading;
-        line-height: @line-height-paragraph * @font-size-heading;
-    appearance: none;
-    width: 100%;
-    padding: 0;
-    border: 0;
-    background-color: transparent;
-    overflow: visible;
-    display: block;
-    resize: none;
-    word-break: break-all;
-    word-wrap: break-word;
-  }`
+
 
