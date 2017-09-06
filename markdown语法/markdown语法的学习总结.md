@@ -99,7 +99,6 @@
 
 
 <!-- 代码块 -->
-
 `textarea {
     color: @color-text-base;
     font-size: @font-size-heading;
@@ -114,14 +113,5 @@
     resize: none;
     word-break: break-all;
     word-wrap: break-word;
-
-    &::placeholder {
-      color: @color-text-placeholder;
-    }
-
-    &:disabled {
-      color: @color-text-disabled;
-      background-color: #fff;
-    }
   }`
 
