@@ -102,7 +102,7 @@
 `textarea {
     color: @color-text-base;
     font-size: @font-size-heading;
-    line-height: @line-height-paragraph * @font-size-heading;
+        line-height: @line-height-paragraph * @font-size-heading;
     appearance: none;
     width: 100%;
     padding: 0;
