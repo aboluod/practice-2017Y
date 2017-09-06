@@ -95,3 +95,33 @@
 |02|张仪|男|2000|100|
 |03|司马错|男|2000|100|
 |04|樗里子|男|2000|100|
+
+
+
+<!-- 代码块 -->
+`
+textarea {
+    color: @color-text-base;
+    font-size: @font-size-heading;
+    line-height: @line-height-paragraph * @font-size-heading;
+    appearance: none;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    overflow: visible;
+    display: block;
+    resize: none;
+    word-break: break-all;
+    word-wrap: break-word;
+
+    &::placeholder {
+      color: @color-text-placeholder;
+    }
+
+    &:disabled {
+      color: @color-text-disabled;
+      background-color: #fff;
+    }
+  }
+`
