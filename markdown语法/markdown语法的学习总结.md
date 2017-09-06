@@ -99,8 +99,8 @@
 
 
 <!-- 代码块 -->
-`
-textarea {
+
+`textarea {
     color: @color-text-base;
     font-size: @font-size-heading;
     line-height: @line-height-paragraph * @font-size-heading;
@@ -123,5 +123,5 @@ textarea {
       color: @color-text-disabled;
       background-color: #fff;
     }
-  }
-`
+  }`
+
