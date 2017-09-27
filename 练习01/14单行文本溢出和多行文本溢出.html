@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单行文本溢出</title>
+    <!--参考原文链接：http://www.css88.com/archives/5206-->
+    <style>
+        /*单行文本溢出*/
+        .single p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /*多行文本溢出*/
+        /*这种写法比较适合webkit浏览器或移动端（绝大部分是webkit内核的）浏览器*/
+        .double p {
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /*另外一种实现多行文本溢出的方法*/
+        /*跨浏览器兼容的方案*/
+        /*比较靠谱简单的做法就是设置相对定位的容器高度，用包含省略号（...）的元素模拟实现*/
+        .div3 p {
+            position: relative;
+            line-height: 1.4em;      /*因为height是line-height的3倍，所以这里显示3行*/
+            height: 4.2em;
+            overflow: hidden;
+        }
+        .div3 p::after {        /*要支持IE8，需要将::after替换成:after*/
+            content: "...";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding-left: 40px;
+            background: -webkit-linear-gradient(left, transparent, #fff 55%);
+            background: -o-linear-gradient{right, transparent, #fff 55%};
+            background: -moz-linear-gradient{right, transparent, #fff 55%};
+            background: linear-gradient{to right, transparent, #fff 55%};
+        }
+    </style>
+</head>
+<body>
+    <!--单行文本溢出-->
+    <div class="single" style="width:200px;">
+        <p>单行文本溢出单行文本溢出单行文本溢出单行文本溢出单行文本溢出单行文本溢出单行文本溢出</p>
+    </div>
+
+    <!--多行文本溢出-->
+    <div class="double" style="width:200px;">
+        <p>多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出</p>
+    </div>
+
+
+
+    <div class="div3" style="width:200px;">
+        <p>多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出</p>
+    </div>
+</body>
+</html>

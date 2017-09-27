@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>v-on指令</title>
+    <!--
+        v-bind指令可以缩写为一个冒号；
+        v-on指令可以缩写为@符号；
+    -->
+</head>
+<body>
+    <div id="app">
+        <p><input type="text" v-model="message"></p>
+
+        <!--click事件直接绑定一个方法-->
+        <p>
+            <button v-on:click="greet">Greet</button>
+        </p>
+
+        <!--click事件使用内联语句-->
+        <p>
+            <button v-on:click="say('hi')">Say</button>
+        </p>
+    </div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+    var vm=new Vue({
+        el: '#app',
+        data: {
+            message: 'hello zhangbo'
+        },
+        methods: {
+            greet: function(){
+                //方法内'this'指向vm
+                alert(this.message);
+            },
+            say: function(msg){
+                alert(msg)
+            }
+        }
+    })
+</script>
+</html>

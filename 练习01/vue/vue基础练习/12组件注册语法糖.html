@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件注册语法糖</title>
+</head>
+<body>
+<div id="app1">
+    <my-component1></my-component1>
+</div>
+
+------------------------------
+
+<div id="app2">
+    <my-component1></my-component1>
+    <my-component2></my-component2>
+    <my-component3></my-component3>
+</div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+    //全局注册，my-component1是标签名称
+    Vue.component('my-component1',{
+        template: '<div>this is the first component!</div>'
+    })
+    var vm1=new Vue({
+        el: '#app1'
+    })
+
+    var vm2 = new Vue({
+        el: '#app2',
+        components: {
+            //局部注册，my-component2是标签名称
+            'my-component2': {
+                template: '<div>this is the second component!</div>'
+            },
+            //局部注册，my-component3是标签名称
+            'my-component3': {
+                template: '<div>this is the third component!</div>'
+            }
+        }
+    })
+</script>
+</html>

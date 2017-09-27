@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Element的第一个练习hello world</title>
+    <!--引入样式-->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-default/index.css">
+</head>
+<body>
+    <div id="app">
+        <el-button @click="visible = true">点击</el-button>
+        <el-dialog v-model="visible" title="hello world zhbo">
+            <p>欢迎使用 Element,这是我的第一个仿饿了么的vue.js的练习</p>
+        </el-dialog>
+    </div>
+</body>
+    <!--先引入 Vue-->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!--引入组件库-->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: function(){
+                return {visible: false }
+            }
+        })
+    </script>
+</html>

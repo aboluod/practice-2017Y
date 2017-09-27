@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>input输入框</title>
+    <link rel="stylesheet" href="base.css">
+</head>
+<body>
+    <div id="app">
+        <el-input placeholder="请输入内容" v-model="input"></el-input>
+        <p>{{ input }}</p>
+    </div>
+
+
+    <br><br><br><br><br>
+    <!--带有图标的输入框-->
+    <div id="app2">
+        <el-input placeholder="请选择日期" v-model="input2" icon="search" :on-icon-click="handleIconClick"></el-input>
+    </div>
+
+
+    <br><br><br><br><br>
+    <!--文本域-->
+    <div id="app3">
+        <el-input type="textarea" placeholder="请输入评论信息" v-model="textarea" :rows="2"></el-input>
+        <h2>{{ textarea }}</h2>
+    </div>
+
+
+    <br><br><br><br><br>
+    <!--可自适应文本高度的文本域-->
+    <div id="app4">
+        <el-input type="textarea" autosize placeholder="请输入内容" v-model="textarea4"></el-input>
+
+        <div style="margin: 20px 0;"></div>
+
+        <el-input type="textarea" :autosize="{minRows: 2,maxRows: 4}" placeholder="请输入信息" v-model="textarea42"></el-input>
+    </div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+<script>
+    //可自适应文本高度的文本域
+    var Main4 = {
+        data :function(){
+            return {
+                textarea4: '',
+                textarea42: ''
+            }
+        }
+    }
+
+    var Ctor4 = Vue.extend(Main4);
+    new Ctor4().$mount('#app4');
+
+
+
+
+    //文本域
+    var Main3 = {
+        data :function(){
+            return {
+                textarea: ''
+            }
+        }
+    }
+    var Ctor3 = Vue.extend(Main3);
+    new Ctor3().$mount("#app3");
+
+
+
+
+
+    var Main2 = {
+        data :function(){
+            return{
+                input2: ''
+            }
+        },
+        methods: {
+            handleIconClick :function(ev){
+//                console.log(ev);
+                alert(ev);
+            }
+        }
+    }
+
+    var Ctor2 = Vue.extend(Main2);
+    new Ctor2().$mount("#app2");
+
+
+
+
+
+    var Main = {
+        data :function() {
+            return {
+                input: ''
+            }
+        }
+    }
+    var Ctor = Vue.extend(Main);
+    new Ctor().$mount('#app');
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用template标签</title>
+</head>
+<body>
+    <div id="app">
+        <my-component></my-component>
+    </div>
+
+    <template id="myComponent">
+        <div>this is a component!</div>
+    </template>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+    Vue.component('my-component',{
+        template: '#myComponent'
+    })
+
+    new Vue({
+        el: '#app'
+    })
+</script>
+</html>

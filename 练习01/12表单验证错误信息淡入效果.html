@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>提示语淡入效果</title>
+    <style>
+        .itembox{height:50px;width:100%;}
+        .tishi-com{display:none;width:200px;height:20px;background:#fff9c9;border:1px solid #c7bf93;color:#666;position:relative;left:245px;top:-22px;}
+        .tishi-font{color:red;}
+    </style>
+</head>
+<body>
+    <div style="width:500px;height:200px;border:1px solid #e5e5e5;margin:0 auto;">
+        <div class="itembox">
+            <label class="user-label" for="username">用户名：</label>
+            <input class="username" name="username" id="username" type="text">
+            <div class="tishi-com">
+                <span class="tishi-font font-12"></span>
+            </div>
+        </div>
+
+        <div class="itembox">
+            <label class="user-label" for="phone">手机号：</label>
+            <input class="phone" name="phone" id="phone" type="text">
+            <div class="tishi-com">
+                <span class="tishi-font font-12"></span>
+            </div>
+        </div>
+
+        <div>
+            <input class="fade" type="submit" value="提交">
+        </div>
+    </div>
+
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.fade').click(function(){
+                var name = $.trim($('.username').val());
+                var phone = $.trim($('.phone').val());
+                if(name == ""){
+                    $('input[name=username]').siblings('.tishi-com').fadeIn('slow');
+                    $('input[name=username]').siblings('.tishi-com').find('.tishi-font').text('用户名不能为空');
+                    return false;
+                }
+                if(phone == ""){
+                    $('input[name=phone]').siblings('.tishi-com').fadeIn();
+                    $('input[name=phone]').siblings('.tishi-com').find('.tishi-font').text('手机号码不能为空');
+                    return false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

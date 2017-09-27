@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>骰子6个面</title>
+    <style>
+        /*公共样式*/
+        .container {
+            width:120px;
+            height:120px;
+            padding:10px;
+            border:3px solid #ccc;
+            border-radius:10%;
+            background:#fff;
+            box-shadow:3px 3px 3px 0 #999;
+            margin:5px;
+            display:flex;/*弹性布局*/
+        }
+        .item {
+            width:35px;
+            height:35px;
+            background:#2a3ec1;
+            border-radius:50%;
+            box-shadow:1px 1px 2px 0 #999;
+        }
+        /*骰子：1点*/
+        .one {
+            justify-content:center;/*水平居中*/
+            align-items:center; /*垂直居中*/
+        }
+        .one .item{background:#c20000;}
+        /*骰子：2点*/
+        .two {
+            flex-direction:column;/*flex-direction属性决定主轴的方向（即项目的排列方向）。*/
+            justify-content:space-around;/*justify-content属性定义了项目在主轴上的对齐方式,space-around：每个项目两侧的间隔相等。*/
+            align-items:center;/*align-items属性定义项目在交叉轴上如何对齐。*/
+        }
+        /*骰子：3点*/
+        .three {
+            flex-direction: column;
+            justify-content:space-around;
+            align-items:center;
+        }
+        .three div:first-child {
+            align-self: flex-start;/*align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。*/
+        }
+        .three div:last-child {
+            align-self: flex-end;
+        }
+
+        /*骰子：4点,5点，6点*/
+        /*flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。*/
+        .four,.five,.six {
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .four > div,.five > div,.six > div {
+            display: flex;
+            justify-content: space-around;
+        }
+        .four .item{background:#c20000;}
+
+    </style>
+</head>
+<body>
+    <!--骰子：1点面-->
+    <div class="container one">
+        <div class="item"></div>
+    </div>
+
+    <!--骰子：2点面-->
+    <div class="container two">
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+
+    <!--骰子：3点面-->
+    <div class="container three">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+
+    <!--骰子：4点面-->
+    <div class="container four">
+        <div><!--第一行-->
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div><!--第二行-->
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </div>
+
+    <!--骰子：5点面-->
+    <div class="container five">
+        <div><!--第一行-->
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div><!--第二行-->
+            <div class="item"></div>
+        </div>
+        <div><!--第三行-->
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </div>
+
+    <!--骰子：6点面-->
+    <div class="container five">
+        <div><!--第一行-->
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div><!--第二行-->
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div><!--第三行-->
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </div>
+</body>
+</html>

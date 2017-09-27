@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagination分页</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-default/index.css">
+</head>
+<body>
+    <div id="app">
+        <div class="block">
+            <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage4" :page-sizes="[100]" :page-size="100" layout="total,sizes,prev,pager,next,jumper" :total="400"></el-pagination>
+        </div>
+    </div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    var Main = {
+        methods: {
+            handleSizeChange(val){
+                console.log('每页 ${val} 条');
+            },
+            handleCurrentChange(val){
+                this.currentPage = val;
+                console.log('当前页： ${val}');
+            }
+        },
+        data :function(){
+            return {
+                currentPage4: 4
+            }
+        }
+    }
+    var Ctor = Vue.extend(Main);
+    new Ctor().$mount('#app');
+</script>
+</html>

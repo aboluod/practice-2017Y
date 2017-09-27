@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas标签的使用2</title>
+</head>
+<body>
+<!--文本-->
+<canvas id="txt1"  width="200px" height="200px" style="border:1px solid red">您的浏览器不支持canvas标签</canvas>
+
+<script>
+    var txt=document.getElementById('txt1');
+    var text=txt.getContext('2d');
+    text.font="60px 微软雅黑";
+    text.fillText('练习',40,110);
+</script>
+
+<!--文本空心-->
+<canvas id="txt" width="200px" height="200px" style="border:1px solid red">您的浏览器不支持canvas标签</canvas>
+
+<script>
+    var txt=document.getElementById('txt');
+    var text=txt.getContext('2d');
+    text.strokeStyle="red";
+    text.font="60px 微软雅黑";
+    text.strokeText("练习",40,110);
+</script>
+
+<!--渐变-->
+<canvas id="gradient" width="200px" height="200px" style="border:1px solid red"></canvas>
+
+<script>
+    var c=document.getElementById('gradient');
+    var text=c.getContext("2d");
+
+    //线性渐变
+    var gra=text.createLinearGradient(0,0,0,200);
+    gra.addColorStop(0,'red');
+    gra.addColorStop(1,"#000");
+    text.fillStyle=gra;
+    text.fillRect(0,0,200,200);
+</script>
+
+
+<canvas id="gradient2" width="200px" height="200px" style="border:1px solid red"></canvas>
+<script>
+    var c=document.getElementById('gradient2');
+    var text=c.getContext('2d');
+
+    //径向渐变
+    var line=text.createRadialGradient(100,100,30,100,100,100);
+    line.addColorStop(0,'#fff');
+    line.addColorStop(1,"#000");
+    text.fillStyle=line;
+    text.fillRect(0,0,200,200);
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--双核浏览器优先使用webkit内核-->
+    <meta name="renderer" content="webkit">
+    <title>简单的拖拽排序</title>
+    <style>
+
+        /*学到的新知识点：
+        1：cursor:move   鼠标的另外一种样式，显示为拖拽形式的鼠标
+        2：user-select:none   不能选择文本
+        3:draggable='true' Html5中的属性，规定属性可以拖拽
+        4：event.target 返回触发事件的节点
+        5：event.pageX和event.pageY获得鼠标的X\Y坐标
+        6:insertBefore() 方法在您指定的已有子节点之前插入新的子节点。第一个参数是要插入的节点，第二个参数是要插入在哪个节点前
+        */
+
+
+        .sortable{border:1px solid #ddd;padding:20px 30px;margin:100px;}
+        .sortable .item{width:210px;border:1px solid #ccc;line-height:30px;padding-left:10px;cursor:move;transition:all .2s ease;}
+        .sortable .item strong{color:#333;-webkit-user-select:none;}
+    </style>
+</head>
+<body>
+    <div class="sortable" id="sortable">
+        <div class="item"><strong>火影忍者</strong></div>
+        <div class="item"><strong>海贼王</strong></div>
+        <div class="item"><strong>足球小子</strong></div>
+        <div class="item"><strong>七龙珠</strong></div>
+        <div class="item"><strong>葫芦娃</strong></div>
+        <div class="item"><strong>黑猫警长</strong></div>
+    </div>
+
+    <script type="text/javascript">
+        var itemArr = document.getElementsByClassName('item');
+        for(var i = 0;i < itemArr.length;i++){
+            itemArr[i].setAttribute('draggable','true');
+            itemArr[i].dataset.order = i;
+        }
+
+        var targetY = 0;
+        var itemHeight = itemArr[0].innerHeight;
+        var nowItem = '';
+        var targetItem = '';
+
+        //拖拽开始
+        document.addEventListener('dragstart',function(event){
+            event.target.style.opacity = '0.4';
+            nowItem = event.target.dataset.order;
+        },false)
+
+        //拖拽中
+        document.addEventListener('drag',function(event){
+            if(event.pageY >= targetY){
+                document.getElementById('sortable').insertBefore(event.target,targetItem.nextSibling);
+            } else {
+                document.getElementById('sortable').insertBefore(event.target,targetItem);
+            }
+        },false)
+
+        //拖拽结束
+        document.addEventListener('dragend',function(){
+            event.target.style.opacity = '1';
+            for(var i = 0; i < itemArr.length;i++){
+                itemArr[i].dataset.order = i;
+            }
+        },false)
+
+        //拖拽到目标
+        document.addEventListener('dragenter',function(){
+            if(event.target.className == 'item'){
+                targetY = event.pageY;
+                targetItem = event.target;
+            } else {
+                console.log('不是拖动目标');
+            }
+        })
+    </script>
+
+</body>
+</html>

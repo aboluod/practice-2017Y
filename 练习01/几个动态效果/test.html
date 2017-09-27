@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		.div1 {
+			-webkit-animation: bounceInLeft 1 1s ease-out;
+			animation: bounceInLeft 1 1s ease-out;
+		}
+		.div2 {
+			-webkit-animation: bounceInRight 1 1s ease-out;
+			animation: bounceInRight 1 1s ease-out;
+		}
+
+		@-webkit-keyframes bounceInLeft {
+		  from, 60%, 75%, 90%, to {
+		    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		  }
+
+		  0% {
+		    opacity: 0;
+		    -webkit-transform: translate3d(-200px, 0, 0);
+		    transform: translate3d(-200px, 0, 0);
+		  }
+
+		  to {
+		    opacity: 1;
+		    -webkit-transform: translate3d(0, 0, 0);
+		    transform: translate3d(0, 0, 0);
+		  }
+		}
+
+		@keyframes bounceInLeft {
+		  from, 60%, 75%, 90%, to {
+		    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		  }
+
+		  0% {
+		    opacity: 0;
+		    -webkit-transform: translate3d(-200px, 0, 0);
+		    transform: translate3d(-200px, 0, 0);
+		  }
+
+		  to {
+		    opacity: 1;
+		    -webkit-transform: translate3d(0, 0, 0);
+		    transform: translate3d(0, 0, 0);
+		  }
+
+		}
+
+
+		@-webkit-keyframes bounceInRight {
+		  from, 60%, 75%, 90%, to {
+		    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		  }
+
+		  from {
+		    opacity: 0;
+		    -webkit-transform: translate3d(200px, 0, 0);
+		    transform: translate3d(200px, 0, 0);
+		  }
+
+		  to {
+		    opacity: 1;
+		    -webkit-transform: translate3d(0, 0, 0);
+		    transform: translate3d(0, 0, 0);
+		  }
+		}
+
+		@keyframes bounceInRight {
+		  from, 60%, 75%, 90%, to {
+		    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		  }
+
+		  from {
+		    opacity: 0;
+		    -webkit-transform: translate3d(200px, 0, 0);
+		    transform: translate3d(200px, 0, 0);
+		  }
+
+		  to {
+		    opacity: 1;
+		    -webkit-transform: translate3d(0, 0, 0);
+		    transform: translate3d(0, 0, 0);
+		  }
+		}
+	</style>
+</head>
+<body>
+	<div class="div1" style="width:800px;height:120px;background:gold;margin:300px auto;"></div>
+	<div class="div2" style="width:800px;height:120px;background:pink;margin:100px auto;"></div>
+</body>
+</html>

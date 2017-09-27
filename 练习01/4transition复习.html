@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transition复习</title>
+    <style>
+        *{padding:0;margin:0;}
+        .wrapper{margin:100px;height:300px;border:10px solid #f0f;background:#0ff;position:relative;cursor:pointer;}
+        .test{width:100px;height:100px;background:#f60;position:absolute;left:30px;top:30px;transition:width 1s ease-in-out 2s,height 2s ease-in,background 3s linear,left .5s ease-out,top 1.5s ease-in;}
+        .wrapper:hover .test{width:150px;height:50px;background:#ff0;left:200px;top:150px;}
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="test"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>backface-visibility</title>
+    <style>
+        *{padding:0;margin:0;}
+        li{list-style:none;}
+        /*定义舞台容器*/
+        .panel{width:800px;margin:100px auto;perspective:1300px;/*定义视距*/}
+        .panel:hover ul{transform: rotateY(60deg) rotateZ(45deg)}
+        /*立方体*/
+        ul{width:100px;height:100px;margin:auto;position:relative;transform-style:preserve-3d;/*定义该立方体是3D元素*/ transform:rotateX(-30deg) rotateY(20deg);transition:all 2s;cursor:pointer;}
+        li{width:100px;height:100px;position:absolute;top:0;left:0;font:30px/100px "微软雅黑";text-align:center;color:#fff;backface-visibility:visible;}
+        .front{transform:translateZ(50px);background:rgba(0,255,0,.6);}
+        .back{transform:translateZ(-50px) rotateY(180deg);background:rgba(255,0,255,0.6);}
+        .left{transform:translateX(-50px) rotateY(-90deg);background:rgba(0,0,255,0.6);}
+        .right{transform:translateX(50px) rotateY(90deg);background:rgba(255,255,0,.6)}
+        .top{transform:translateY(-50px) rotateX(90deg);background:rgba(255,0,0,.6);}
+        .bottom{transform:translateY(50px) rotateX(-90deg);background:rgba(0,255,255,.6);}
+    </style>
+</head>
+<body>
+    <!--知识点-->
+    <!--backface-visibility设置当元素不面向屏幕时，是否可见，默认值visible,可设置hidden-->
+    
+    <div class="panel">
+        <ul>
+            <li class="top">上</li>
+            <li class="bottom">下</li>
+            <li class="left">左</li>
+            <li class="right">右</li>
+            <li class="front">前</li>
+            <li class="back">后</li>
+        </ul>
+    </div>
+</body>
+</html>

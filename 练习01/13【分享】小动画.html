@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分享小动画</title>
+    <style>
+        body{font-family: "SF UI Text",serif,sans-serif;font-size:12px;}
+        *{margin:0;padding:0;}
+        #div1{width:200px;height:600px;margin-top:200px;background:rgba(0,0,0,.6);position:relative;left:-200px;top:0;}
+        #div1 span{width:20px;background:rgb(255,119,157);position:absolute;left:200px;top:275px;color:#fff;text-align:center;cursor:pointer;padding:15px 5px 15px 5px;border-radius:0 10px 10px 0;}
+        #div1 span:hover{background:rgb(255,84,137)}
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <span id="share">分享</span>
+    </div>
+
+    <!--<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>-->
+    <script>
+        window.onload = function(){
+            //把所有代码放在一个自执行的匿名函数中，目的是为了防止全局变量的污染
+            (function(){
+                var div = document.getElementById('div1');
+                var timer = null;
+
+                div.onmouseover = function(){
+                    startMove(0);
+                }
+                div.onmouseout = function(){
+                    startMove(-200);
+                }
+
+                function startMove(targetPosition){
+                    clearInterval(timer);
+                    var speed = 0;  //定义一个速度变量
+                    if(targetPosition < 0){
+                        speed = -10;
+                    }else {
+                        speed =10;
+                    }
+
+                    //设置一个定时器：当鼠标移动上分享时，传入参数是0即targetPosition是0，div距离左边-200px,那么执行else里面的语句每0.3毫秒，else里面的语句是div距离左边的距离每0.3毫秒增加10，当距离左边的距离增加到0时，就执行if里面的语句
+                    timer = setInterval(function(){
+                        if(div.offsetLeft == targetPosition) {
+                            clearInterval(timer);
+                        }else{
+                            div.style.left = div.offsetLeft + speed + 'px';
+                        }
+                    },30);
+                }
+            })();
+        }
+    </script>
+</body>
+</html>

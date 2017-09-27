@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas标签的使用1</title>
+</head>
+<body>
+<!--矩形填充，fill指填充当前绘图（路径）-->
+<canvas id="myCanvas1">your browser does not support the canves tag</canvas>
+
+<script>
+    var canvas=document.getElementById('myCanvas1');
+    var ctx=canvas.getContext('2d');
+    ctx.fillStyle="#ff0000";
+    ctx.shadowBlur=20;
+    ctx.shadowColor="gold";
+    ctx.fillRect(20,20,80,100);
+</script>
+
+<!--矩形描边，stroke指绘制已定义的路径-->
+<canvas id="myCanvas0">your browser does not support the canvas tag</canvas>
+
+<script>
+    var canvas=document.getElementById('myCanvas0');
+    var ctx=canvas.getContext('2d');
+    ctx.stroke(20,20,80,100);
+</script>
+
+<!--圆-->
+<canvas id="arc" width="200px" height="200px" style="border:1px solid gray"></canvas>
+
+<script>
+    var arc=document.getElementById('arc');
+    ctx=arc.getContext('2d');
+    ctx.strokeStyle="red";
+    ctx.beginPath();
+    ctx.arc(100,100,50,0,2*Math.PI);
+    ctx.arc(100,100,70,0,2*Math.PI);
+    ctx.stroke();
+</script>
+
+<!--绘制线条-->
+<canvas id="line" width="200px" height="200px" style="border:1px solid gray"></canvas>
+<script>
+    var line=document.getElementById('line');
+    ctx=line.getContext('2d');
+    ctx.moveTo(0,0);
+    ctx.lineTo(100,100);
+    ctx.lineTo(200,0);
+    ctx.lineTo(200,150);
+    ctx.lineTo(0,150);
+    ctx.lineTo(0,0);
+    ctx.fill();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>把头部和尾部通过jquery加载进页面</title>
+	<script src="jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<div id="header"></div>
+	<div class="main" style="width:100%;height:500px;background:gold;">
+		我是主体
+	</div>
+	<div id="footer"></div>
+	<script>
+	    $(function(){ 
+	        $('#header').load('common/header.html');  
+	        $('#footer').load('common/footer.html');  
+	      })  
+	</script>
+</body>
+</html>

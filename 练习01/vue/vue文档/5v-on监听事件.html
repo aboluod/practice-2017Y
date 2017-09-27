@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on监听事件</title>
+</head>
+<body>
+    <!--<div id="example">-->
+        <!--<button v-on:click="counter += 1">增加1</button>-->
+        <!--<p>这个按钮被点击了{{ counter }}次</p>-->
+    <!--</div>-->
+
+
+    <!--<div id="example-2">-->
+        <!--<button v-on:click="greet">Greet</button>-->
+    <!--</div>-->
+
+
+    <div id="example-3">
+        <button v-on:click="say('hi')">say hi</button>
+        <button v-on:click="say('what')">say what</button>
+    </div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+    var example3 = new Vue({
+        el: '#example-3',
+        methods: {
+            say: function(message){
+                alert(message)
+            }
+        }
+    })
+
+
+
+//    var example2 = new Vue({
+//        el: '#example-2',
+//        data: {
+//            name: 'vue.js'
+//        },
+//        methods: {
+//            //event是原生 Dom 事件
+//            greet: function(event){
+//                //this在方法里指当前Vue实例
+//                alert('hello' + this.name+'!')
+//                alert(event.target.tagName)
+//            }
+//        }
+//    })
+
+
+
+//    var example = new Vue({
+//        el: '#example',
+//        data: {
+//            counter: 1
+//        }
+//    })
+</script>
+</html>

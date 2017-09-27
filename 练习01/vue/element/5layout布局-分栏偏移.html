@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分栏偏移</title>
+    <link rel="stylesheet" href="base.css">
+</head>
+<body>
+<div id="app">
+    <el-row :gutter="20">
+        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="6" offset="6"><div class="grid-content bg-purple"></div></el-col>
+    </el-row>
+
+    <el-row :gutter="20">
+        <el-col :span="6" offset="6"><div class="grid-content bg-purple-dark"></div></el-col>
+        <el-col :span="6" offset="6"><div class="grid-content bg-purple-dark"></div></el-col>
+    </el-row>
+</div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    new Vue().$mount('#app');
+</script>
+</html>

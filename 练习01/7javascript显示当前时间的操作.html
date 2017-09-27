@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript显示当前时间的操作</title>
+
+    <script>
+        function abc(){
+            var out="";
+            var now=new Date();
+            out+=now.getFullYear();
+            out+="年";
+            out+=(now.getMonth()+1);
+            out+="月";
+            out+=now.getDate();
+            out+="日";
+            out+=now.getHours();
+            out+="时";
+            out+=now.getMinutes();
+            out+="分";
+
+            document.getElementById("div1").innerHTML=out;
+        }
+    </script>
+</head>
+<body onload="abc();">
+    <div id="div1"></div>
+</body>
+</html>

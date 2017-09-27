@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多选框的全选和全不选功能实现</title>
+    <link rel="stylesheet" href="base.css">
+</head>
+<body>
+    <div id="app">
+        <template>
+            <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
+
+            <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+                <el-checkbox v-for="city in cities" :label="city">{{ city }}</el-checkbox>
+            </el-checkbox-group>
+        </template>
+    </div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    const cityOptions = ['上海','北京','广州','深圳'];
+    var Main = {
+        data :function(){
+            return {
+                checkAll: true,
+                checkedCities: ['上海','北京'],
+                cities: cityOptions,
+                isIndeterminate: true
+            };
+        },
+        methods: {
+            handleCheckAllChange :function(event){
+              this.checkedCities = event.target.checked ? cityOptions : [];
+              this.isIndeterminate = false;
+            },
+            handleCheckedCitiesChange :function(value){
+                let checkedCount = value.length;
+                this.checkAll = checkedCount === this.cities.length;
+                this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
+            }
+        }
+    }
+
+    var Ctor = Vue.extend(Main)
+    new Ctor().$mount('#app');
+
+</script>
+</html>

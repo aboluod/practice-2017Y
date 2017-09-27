@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>按钮样式的单选组合</title>
+    <link rel="stylesheet" href="base.css">
+</head>
+<body>
+    <div id="app">
+        <template>
+            <el-radio-group v-model="radio1">
+                <el-radio-button label="上海"></el-radio-button>
+                <el-radio-button label="陕西"></el-radio-button>
+                <el-radio-button label="广西"></el-radio-button>
+                <el-radio-button label="江苏"></el-radio-button>
+                <el-radio-button label="北京"></el-radio-button>
+            </el-radio-group>
+
+
+            <hr>
+            <el-radio-group v-model="radio2">
+                <el-radio-button label="上海"></el-radio-button>
+                <el-radio-button label="陕西"></el-radio-button>
+                <el-radio-button label="广西"></el-radio-button>
+                <el-radio-button label="江苏" :disabled="true"></el-radio-button>
+                <el-radio-button label="北京"></el-radio-button>
+            </el-radio-group>
+
+
+            <hr>
+            <el-radio-group v-model="radio3" :disabled="true">
+                <el-radio-button label="上海"></el-radio-button>
+                <el-radio-button label="陕西"></el-radio-button>
+                <el-radio-button label="广西"></el-radio-button>
+                <el-radio-button label="江苏"></el-radio-button>
+                <el-radio-button label="北京"></el-radio-button>
+            </el-radio-group>
+
+        </template>
+    </div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    var Main = {
+        data :function(){
+            return {
+                radio1: '陕西',
+                radio2: '上海',
+                radio3: '广西'
+            };
+        }
+    }
+    var Ctor = Vue.extend(Main);
+    new Ctor().$mount('#app');
+</script>
+</html>

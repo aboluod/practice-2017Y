@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        html{font-size:12px;font-family:Ubuntu,simHei,sans-serif;font-weight:400;}
+        body{font-size:1rem;}
+        table,th,td{border-collapse:collapse;border-spacing:0;}
+        table{width:100%;margin:20px;}
+        td,th{border:1px solid #bcbcbc;padding:5px 10px;}
+        th{background:#42b983;font-size:1.2rem;font-weight:400;color:#fff;cursor:pointer;}
+        tr:nth-of-type(odd){background:#fff;}
+        tr:nth-of-type(even){background:#eee;}
+        #app{max-width:480px;margin:0 auto;}
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="searchBar">
+            Search <input type="text" v-model="searchQuery">
+        </div>
+        <simple-grid :data="gridData" :columns="gridColumns" :filter-key="searchQuery"></simple-grid>
+
+    </div>
+
+    <template id="grid-template">
+        <table>
+            <thead>
+                <tr>
+                    <th v-for="col in columns">
+                        {{ col | capitalize}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="entry in data | filterBy filterKey">
+                    <td v-for="col in columns">
+                        {{ entry[col] }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+
+</body>
+
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+    Vue.component('simple-grid',{
+        template: '#grid-template',
+        props: {
+            data: Array,
+            columns: Array,
+            filterKey: String
+        }
+    })
+
+    var demo = new Vue({
+        el: '#app',
+        data: {
+            searchQuery: '',
+            gridColumns: ['name','age','sex'],
+            gridData: [{
+                name: 'Jack',
+                age: 30,
+                sex: 'Male'
+            },{
+                name: 'Bill',
+                age: 26,
+                sex: 'Male'
+            },{
+                name: 'Tracy',
+                age: 22,
+                sex: 'Female'
+            },{
+                name: 'Chris',
+                age: 36,
+                sex: 'Male'
+            }]
+        }
+    })
+</script>
+
+</html>

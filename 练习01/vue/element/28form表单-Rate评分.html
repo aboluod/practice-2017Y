@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rate评分</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-default/index.css">
+</head>
+<body>
+    <div id="app">
+        <el-rate v-model="value1" disabled show-text text-color="#ff9900" text-template="{value}"></el-rate>
+    </div>
+
+    <div id="app2">
+        <el-rate v-model="value2" show-text allow-half text-color="red"></el-rate>
+    </div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+
+    var Main2 = {
+        data :function(){
+            return {
+                value2: null
+            }
+        }
+    }
+    var Ctor2 = Vue.extend(Main2);
+    new Ctor2().$mount("#app2");
+
+
+
+
+    var Main = {
+        data :function(){
+            return {
+                value1: 3.7
+            }
+        }
+    }
+    var Ctor = Vue.extend(Main);
+    new Ctor().$mount("#app");
+</script>
+</html>

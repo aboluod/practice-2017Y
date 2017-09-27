@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>steps步骤条</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-default/index.css">
+</head>
+<body>
+    <div id="app">
+        <el-steps :space="350" :active="2">
+            <el-step title="步骤一" description="这是一段很长恒昌的描述性文字"></el-step>
+            <el-step title="步骤二" description="这是步骤二步骤二步骤二"></el-step>
+            <el-step title="步骤三" description="这是第三迪桑娜第这是第三迪桑娜第三"></el-step>
+            <el-step title="步骤四" description="这是第是迪桑娜第这是第四迪桑娜第四"></el-step>
+        </el-steps>
+    </div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    new Vue().$mount('#app');
+</script>
+</html>

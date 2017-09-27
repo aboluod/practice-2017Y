@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--双核浏览器优先使用webkit内核-->
+    <meta name="renderer" content="webkit">
+    <title>查看大图并且可以左右切换</title>
+    <style>
+        .img-box{width:900px;margin:0 auto;background:pink;}
+        .img-box div{float:left;width:240px;height:300px;cursor:pointer;padding:5px;border:1px solid #ccc;margin:5px;}
+        .img-box img{width:240px;height:300px;}
+        .gray{display:none;width:100%;height:100%;position:fixed;top:0;left:0;background:rgba(0,0,0,.6);}
+        .bigimg-container{display:none;width:820px;height:512px;position:absolute;top:50%;left:50%;margin-left:-410px;margin-top:-256px;border:10px solid gold;}
+        .bigimg-container .prev{position:absolute;top:50%;margin-top:-30px;left:-160px;cursor:pointer;font-size:80px;color:gold;}
+        .bigimg-container .next{position:absolute;top:50%;margin-top:-30px;right:-160px;cursor:pointer;font-size:80px;color:gold;}
+        .bigimg-container img{width:820px;height:512px;}
+    </style>
+</head>
+<body>
+    <div class="img-box">
+        <div><img src="img/huoying01.jpg"  /></div>
+        <div><img src="img/huoying02.jpg"  /></div>
+        <div><img src="img/huoying03.jpg"  /></div>
+        <div><img src="img/huoying04.jpg"  /></div>
+        <div><img src="img/huoying05.jpg"  /></div>
+        <div><img src="img/huoying06.jpg"  /></div>
+    </div>
+    <div class="gray"></div>
+    <div class="bigimg-container">
+        <img src="" alt="" >
+        <div class="prev"><</div>
+        <div class="next">></div>
+    </div>
+
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        //让小图点击后显示大图，只要获取到小图的路径，然后赋值到大图的src
+        var index = 0;
+        var bigSrc = "";
+        $('.img-box div').click(function(){
+            index = $(this).index();
+            $('.gray').show();
+            $('.bigimg-container').show();
+            bigSrc = $(this).find('img').attr('src');
+            $('.bigimg-container img').attr('src',bigSrc);
+        })
+        $('.gray').click(function(){
+            $('.gray').hide();
+            $('.bigimg-container').hide();
+        })
+
+        //下一张按钮功能的实现
+        $('.bigimg-container .next').click(function(){
+            index++;
+            if(index > $('.img-box img').length-1){
+                //如果是最后一张图片点击下一张，那么让它显示第一张，所以把index赋值为第一张图片的索引
+                index = 0;
+                alert("已经是最后一张啦！");
+            }
+            bigSrc = $('.img-box div img').eq(index).attr('src');
+            $('.bigimg-container img').attr('src',bigSrc);
+        });
+
+        //上一张按钮功能的实现
+        $('.bigimg-container .prev').click(function(){
+            index--;
+            if(index < 0) {
+                //如果是第一张图片点击上一张，那么让它显示最后一张，所以把index赋值为最后一张图片的索引
+                //index = $('.img-box div').length-1;
+                alert('第一张图片啦！！');
+            }
+            bigSrc = $('.img-box div img').eq(index).attr('src');
+            $('.bigimg-container img').attr('src',bigSrc);
+        });
+    </script>
+</body>
+</html>

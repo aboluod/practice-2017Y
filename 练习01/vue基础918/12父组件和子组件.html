@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<div id="box">
+    <ccc></ccc>
+</div>
+
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    window.onload = function(){
+        var a = Vue.extend({
+            template: '<h2>组件aaa</h2>'
+        })
+        var c = Vue.extend({
+            template: '<div><h1>组件ccc</h1><aaa></aaa></div>',
+            components: {
+                'aaa': a
+            }
+        })
+        Vue.component('ccc',c)
+        new Vue({
+            el: '#box'
+        })
+    }
+
+</script>
+</body>
+</html>

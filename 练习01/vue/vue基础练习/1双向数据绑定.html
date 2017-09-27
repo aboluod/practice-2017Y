@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双向数据绑定</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{message}}</p>
+        <input type="text" v-model="message">
+    </div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+    var exampleData = {
+        message: 'hello 张波'
+    }
+
+
+    var a=new Vue({  //new Vue中的Vue必须是大写开头
+        el: '#app',
+        data: exampleData
+    })
+
+</script>
+</html>

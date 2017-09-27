@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>layout布局</title>
+    <link rel="stylesheet" href="base.css">
+
+</head>
+<body>
+
+    <div id="app">
+        <!--布局占满24格的一行-->
+        <el-row>
+            <el-col :span="24">
+                <div class="grid-content bg-purple-dark">占满行</div>
+            </el-col>
+        </el-row>
+
+        <!--布局占一行的一半-->
+        <el-row>
+            <el-col :span="12"><div class="grid-content bg-purple">占半行</div></el-col>
+            <el-col :span="12"><div class="grid-content bg-purple-light">占半行</div></el-col>
+        </el-row>
+
+        <!--布局一行分3份-->
+        <el-row>
+            <el-col :span="8"><div class="grid-content bg-gold">一</div></el-col>
+            <el-col :span="8"><div class="grid-content bg-purple">二</div></el-col>
+            <el-col :span="8"><div class="grid-content bg-purple-dark">三</div></el-col>
+        </el-row>
+
+        <!--布局一行分4份-->
+        <el-row>
+            <el-col :span="6"><div class="grid-content bg-purple-dark">一</div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple">二</div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple-dark">三</div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple">四</div></el-col>
+        </el-row>
+
+        <!--布局一行分6份-->
+        <el-row>
+            <el-col :span="4"><div class="grid-content bg-purple">一</div></el-col>
+            <el-col :span="4"><div class="grid-content bg-purple-dark">二</div></el-col>
+            <el-col :span="4"><div class="grid-content bg-purple">三</div></el-col>
+            <el-col :span="4"><div class="grid-content bg-purple-dark">四</div></el-col>
+            <el-col :span="4"><div class="grid-content bg-purple">五</div></el-col>
+            <el-col :span="4"><div class="grid-content bg-gold">六</div></el-col>
+        </el-row>
+    </div>
+
+
+</body>
+    <!--先引入 Vue-->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!--引入组件库-->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        new Vue().$mount("#app");
+    </script>
+</html>

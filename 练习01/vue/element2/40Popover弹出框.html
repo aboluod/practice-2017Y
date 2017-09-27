@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Popover弹出框</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-default/index.css">
+</head>
+<body>
+    <div id="app">
+        <el-popover ref="popover5" placement="bottom" width="200" v-model="visible2">
+            <p>这是一段内容，您确定要删除吗？</p>
+            <div style="text-align:right;margin:0;">
+                <el-button size="mini" type="success" @click="visible2 = false">取消</el-button>
+                <el-button type="primary" size="mini" @click="visible2 = false">确定</el-button>
+            </div>
+        </el-popover>
+
+        <el-button v-popover:popover5>删除</el-button>
+    </div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    var Main = {
+        data :function(){
+            return {
+                visible2: false,
+            };
+        }
+    }
+    var Ctor = Vue.extend(Main);
+    new Ctor().$mount('#app');
+</script>
+</html>

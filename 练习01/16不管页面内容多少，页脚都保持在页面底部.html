@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>不管页面内容多少，页脚都保持在底部</title>
+    <style>
+        *{margin:0;padding:0;}
+        #container{background:#3cf;}
+        #footer{background:#fc0;width:100%;}
+    </style>
+</head>
+<body>
+    <div id="container">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
+    <div id="footer">底部底部底部底部底部底部底部底部底部底部底部底部底部</div>
+
+    <script type="text/javascript" language="javascript">
+        function test () {
+            var infoHeight = document.getElementById('container').scrollHeight;
+            var bottomHeight = document.getElementById('footer').scrollHeight;
+            var allHeight = document.documentElement.clientHeight;
+
+            var bottom = document.getElementById('footer');
+            if(infoHeight + bottomHeight < allHeight) {
+                bottom.style.position = 'absolute';
+                bottom.style.bottom = '0';
+            }else{
+                bottom.style.position = '';
+                bottom.style.bottom = '';
+            }
+
+            // setTimeout(function(){test();},10);
+        }
+        test();
+    </script>
+</body>
+</html>

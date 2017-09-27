@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>提示弹框效果</title>
+</head>
+<body>
+    <a href="javascript:void(0);" style="cursor:pointer">点我点我</a>
+
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.js"></script>
+    <script>
+        //参数width:弹框的宽
+        //参数alertcontent:弹框的内容
+        $(function(){
+            function show_alert(width,alertcontent){
+                var boarddiv = "<div id='promptalert' style='width:200px;height:30px;background-color:gold;text-align:center;line-height:30px;position:fixed;top:-30px;z-index:9999'><span class='alert-content' style='color:#fff;font-size:14px;'>添加成功！</span></div>"
+                $(document.body).append(boarddiv);//生成显示的div
+                var window_width = ($(window).width())/2;//页面宽度的50%
+                var promptalert_width = ($("#promptalert").width())/2;//div宽度的50%
+                var position_left = window_width - promptalert_width;//position定位left的值，实现不管div多宽水平居中
+                $('#promptalert').css('width',width);
+                $('#promptalert').css({'left':position_left});
+                $('#promptalert .alert_content').html(alertcontent);
+                $('#promptalert').animate({
+                    top: '15px'
+                });
+                setTimeout(function(){
+                    $('#promptalert').animate({      //jquery中用到的动画方法是animate不是animation
+                        top: '-30px'
+                    });
+                },2000)//2秒后执行该方法
+
+            }
+
+            $('a').click(function(){
+                show_alert('400px','我的弹框弹出来了！')
+            })
+        })
+    </script>
+</body>
+</html>

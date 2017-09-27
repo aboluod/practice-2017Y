@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>button按钮</title>
+    <link rel="stylesheet" href="base.css">
+</head>
+<body>
+    <div id="app">
+        <el-button>默认按钮</el-button>
+        <el-button type="primary">主要按钮</el-button>
+        <el-button type="text">文字按钮</el-button>
+
+        <hr>
+
+        <!--禁用状态-->
+        <el-button :plain="true" disabled="true">默认按钮</el-button>
+        <el-button type="primary" disabled="true">主要按钮</el-button>
+        <el-button type="text" disabled="true">文字按钮</el-button>
+
+        <hr>
+
+        <!--不同颜色的按钮-->
+        <el-button type="success">成功按钮</el-button>
+        <el-button type="warning">警告按钮</el-button>
+        <el-button type="danger">危险按钮</el-button>
+        <el-button type="info">信息按钮</el-button>
+
+        <hr>
+
+        <!--朴素按钮-->
+        <el-button :plain="true" type="success">成功按钮</el-button>
+        <el-button :plain="true" type="warning">警告按钮</el-button>
+        <el-button :plain="true" type="danger">危险按钮</el-button>
+        <el-button :plain="true" type="info">信息按钮</el-button>
+    </div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    new Vue().$mount('#app');
+</script>
+</html>

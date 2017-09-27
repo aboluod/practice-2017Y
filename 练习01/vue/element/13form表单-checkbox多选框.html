@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checkbox多选框</title>
+    <link rel="stylesheet" href="base.css">
+</head>
+<body>
+    <div id="app">
+        <template>
+            <el-checkbox-group v-model="checkList">
+                <el-checkbox label="篮球"></el-checkbox>
+                <el-checkbox label="足球"></el-checkbox>
+                <el-checkbox label="排球" disabled></el-checkbox>
+                <el-checkbox label="乒乓球" disabled></el-checkbox>
+                <el-checkbox label="羽毛球"></el-checkbox>
+            </el-checkbox-group>
+        </template>
+    </div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    var Main = {
+        data :function() {
+            return {
+                checkList: ['足球','羽毛球']
+            };
+        }
+    }
+    var Ctor = Vue.extend(Main);
+    new Ctor().$mount('#app');
+</script>
+</html>

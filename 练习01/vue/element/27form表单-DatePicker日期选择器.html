@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DatePicker日期选择器</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-default/index.css">
+</head>
+<body>
+    <div id="app">
+        <template>
+            <div class="block">
+                <el-date-picker v-model="value1" type="date" placeholder="选择日期" :picker-options="pickerOptions0"></el-date-picker>
+            </div>
+        </template>
+    </div>
+
+    <br><br><br>
+    <div id="app2">
+        <template>
+            <div class="block">
+                <el-date-picker v-model="value2" type="daterange" placeholder="选择日期范围"></el-date-picker>
+            </div>
+        </template>
+    </div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+
+    var Main2 = {
+        data :function(){
+            return {
+                value2: ''
+            }
+        }
+    }
+    var Ctor2 = Vue.extend(Main2);
+    new Ctor2().$mount('#app2');
+
+
+
+
+    var Main = {
+        data :function(){
+            return{
+                pickerOptions0: {
+                    disabledDate(time){
+                        return time.getTime() < Date.now()-8.64e7;
+                    }
+                },
+                value1: ''
+            }
+        }
+    }
+    var Ctor = Vue.extend(Main);
+    new Ctor().$mount('#app');
+</script>
+</html>

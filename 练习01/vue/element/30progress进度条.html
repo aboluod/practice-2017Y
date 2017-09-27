@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>progress进度条</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-default/index.css">
+</head>
+<body>
+    <div id="app" style="width:500px;">
+        <el-progress :percentage="0"></el-progress>
+        <el-progress :percentage="70"></el-progress>
+        <el-progress :percentage="100" status="success"></el-progress>
+        <el-progress :percentage="50" status="exception"></el-progress>
+    </div>
+
+    <br><br><br>
+    <!--线性进度条-百分比內显-->
+    <div id="app2" style="width:300px;">
+        <el-progress :percentage="0" :text-inside="true" :stroke-width="20"></el-progress>
+        <el-progress :percentage="70" :text-inside="true" :stroke-width="18"></el-progress>
+        <el-progress :percentage="100" :text-inside="true" :stroke-width="18" status="success"></el-progress>
+    </div>
+
+    <br><br><br>
+    <!--环形进度条-->
+    <div id="app3">
+        <el-progress type="circle" percentage="35"></el-progress>
+        <el-progress type="circle" percentage="100" status="success"></el-progress>
+    </div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    new Vue().$mount('#app');
+
+    new Vue().$mount('#app2');
+
+    new Vue().$mount('#app3');
+</script>
+</html>

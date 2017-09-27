@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <!--注意这两种使用方式的不同，使用多个类的话用的是数组括号，使用true或false判断的话用的是大括号-->
+<div id="box">
+    <!--行间样式绑定的第一种方式-->
+    <span :style="{color:'gold',fontSize:'50px'}">行间样式绑定的第一种方式</span>
+    <hr>
+    <!--行间样式绑定的第二种方式，直接绑定一个对象-->
+    <span :style="css">行间样式绑定的第一种方式</span>
+</div>
+
+
+
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    window.onload = function () {
+        var c = new Vue({
+            el : '#box',
+            data : {
+                css: {
+                    color: 'red',
+                    backgroundColor: 'yellowgreen'
+                }
+            }
+        });
+    }
+
+</script>
+</body>
+</html>

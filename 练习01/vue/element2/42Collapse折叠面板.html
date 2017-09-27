@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>collapse折叠面板</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-default/index.css">
+</head>
+<body>
+    <div id="app">
+        <el-collapse v-model="activeName" accordion>
+            <el-collapse-item title="一致性 Consistency" name="1">
+                <div>fdaj发动机开发接口大街开了房间的啦 飞机打开链接锋利的家里开飞机快乐大脚法律的啦飞</div>
+                <div>fdaj发动机开发接口大街开了房间的啦 飞机打开链接锋利的家里开飞机快乐大脚法律的啦飞</div>
+            </el-collapse-item>
+            <el-collapse-item title="反馈 Feedback" name="2">
+                <div>fdaj发动机开发接口大街开了房间的啦 飞机打开链接锋利的家里开飞机快乐大脚法律的啦飞</div>
+                <div>fdaj发动机开发接口大街开了房间的啦 飞机打开链接锋利的家里开飞机快乐大脚法律的啦飞</div>
+                <div>fdaj发动机开发接口大街开了房间的啦 飞机打开链接锋利的家里开飞机快乐大脚法律的啦飞</div>
+                <div>fdaj发动机开发接口大街开了房间的啦 飞机打开链接锋利的家里开飞机快乐大脚法律的啦飞</div>
+            </el-collapse-item>
+            <el-collapse-item title="效率 Efficiency" name="3">
+                <div>fdaj发动机开发接口大街开了房间的啦 飞机打开链接锋利的家里开飞机快乐大脚法律的啦飞</div>
+                <div>fdaj发动机开发接口大街开了房间的啦 飞机打开链接锋利的家里开飞机快乐大脚法律的啦飞</div>
+                <div>fdaj发动机开发接口大街开了房间的啦 飞机打开链接锋利的家里开飞机快乐大脚法律的啦飞</div>
+            </el-collapse-item>
+        </el-collapse>
+    </div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    var Main = {
+        data :function(){
+            return {
+                activeName: '2'
+            }
+        }
+    }
+    var Ctor = Vue.extend(Main);
+    new Ctor().$mount('#app');
+</script>
+</html>

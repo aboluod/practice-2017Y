@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>左右垂直居中</title>
+    <style>
+        /*table表格的实现方法*/
+        /*行内元素左右垂直居中*/
+        .div1 {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        /*块状元素左右垂直居中*/
+        .div2 {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        .div2 p {
+            margin: 0 auto;
+        }
+
+        /*flex布局的实现方法*/
+        .div3,.div4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!--div里是行内元素-->
+    <div class="div1" style="width:300px;height:500px;border:1px solid gold;">
+        <span>左右垂直居中</span>
+    </div>
+    <!--div里是块状元素-->
+    <div class="div2" style="width:300px;height:500px;border:1px solid gold;">
+        <p style="width:100px;height:40px;background:pink;">左右垂直居中</p>
+    </div>
+
+    <hr><hr><hr><hr><hr>
+
+    <!--div里是行内元素-->
+    <div class="div3" style="width:300px;height:500px;border:1px solid gold;">
+        <span>左右垂直居中</span>
+    </div>
+    <!--div里是块状元素-->
+    <div class="div4" style="width:300px;height:500px;border:1px solid gold;">
+        <p style="width:100px;height:40px;background:pink;">左右垂直居中</p>
+    </div>
+</body>
+</html>

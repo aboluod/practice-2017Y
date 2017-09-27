@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>select创建条目</title>
+    <link rel="stylesheet" href="base.css">
+</head>
+<body>
+    <div id="app">
+        <template>
+            <el-select v-model="value10" multiple allow-create filterable placeholder="请选择文章标签" size="large" multiple-limit="2">
+                <el-option v-for="item in options" :label="item.label" :value="item.value"></el-option>
+            </el-select>
+        </template>
+    </div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    var Main = {
+        data :function(){
+            return {
+                options: [{
+                    value: 'HTML',
+                    label: 'HTML'
+                },{
+                    value: 'CSS',
+                    label: 'CSS'
+                },{
+                    value: 'javascript',
+                    label: 'javascript'
+                }],
+                value10: []
+            }
+        }
+    }
+
+    var Ctor = Vue.extend(Main);
+    new Ctor().$mount('#app');
+
+</script>
+</html>

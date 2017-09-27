@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for列表渲染</title>
+</head>
+<body>
+    <ul id="example">
+        <li v-for="item in items">
+            {{ item.message }}
+        </li>
+    </ul>
+
+    <!--v-for还支持一个可选的第二个参数为当前项的索引-->
+    <ul id="example2">
+        <li v-for="(item,index) in items">
+            {{ parentMessage }} - {{ index }} - {{ item.message }}
+        </li>
+    </ul>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+    var example2 = new Vue({
+        el: '#example2',
+        data: {
+            parentMessage: 'Parent',
+            items: [
+                {message: 'Foo'},
+                {message: 'Bar'}
+            ]
+        }
+    })
+
+
+    var example = new Vue({
+        el: '#example',
+        data: {
+            items: [
+                {message: 'Zhang'},
+                {message: 'Bo'}
+            ]
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if的使用</title>
+</head>
+<body>
+    <div id="app">
+        <div v-if="Math.random() > 0.5">
+            Now you seen me
+        </div>
+        <div v-else>
+            你看不见我
+        </div>
+    </div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app'
+    })
+</script>
+</html>

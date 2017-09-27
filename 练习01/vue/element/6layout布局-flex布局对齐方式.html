@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex布局-对齐方式</title>
+    <link rel="stylesheet" href="base.css">
+</head>
+<body>
+    <div id="app">
+        <el-row type="flex" class="row-bg">
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-gold"></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        </el-row>
+
+        <!--justify="start"-->
+        <el-row type="flex" class="row-bg" justify="start">
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-gold"></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        </el-row>
+
+        <!--justify="center"-->
+        <el-row type="flex" class="row-bg" justify="center">
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-gold"></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        </el-row>
+
+        <!--justify="end"-->
+        <el-row type="flex" class="row-bg" justify="end">
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-gold"></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        </el-row>
+
+        <!--justify="space-between"-->
+        <el-row type="flex" class="row-bg" justify="space-between">
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-gold"></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        </el-row>
+
+        <!--justify="space-around"-->
+        <el-row type="flex" class="row-bg" justify="space-around">
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-gold"></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        </el-row>
+
+        <!--push栅格向右移动格数-->
+        <el-row type="flex" class="row-bg" justify="space-around">
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+            <el-col :span="6" :push="2"><div class="grid-content bg-purple-dark"></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        </el-row>
+
+        <!--pull栅格向左移动格数-->
+        <el-row type="flex" class="row-bg" justify="space-around">
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+            <el-col :span="6" :pull="2"><div class="grid-content bg-gold"></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        </el-row>
+    </div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+<script>
+    new Vue().$mount('#app');
+</script>
+</html>

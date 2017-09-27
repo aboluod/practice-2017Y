@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ui</title>
+</head>
+<body>
+	<ul>
+		<li class="first">1111111111111111111111111111</li>
+		<li class="second" style="width:300px;height:30px;background-color:gold;display:none"></li>
+		<li class="first">2222222222222222222222222222</li>
+		<li class="second" style="width:300px;height:30px;background-color:gold;display:none"></li>
+		<li class="first">3333333333333333333333333333</li>
+		<li class="second" style="width:300px;height:30px;background-color:gold;display:none"></li>
+		<li class="first">4444444444444444444444444444</li>
+		<li class="second" style="width:300px;height:30px;background-color:gold;display:none"></li>
+		<li class="first">5555555555555555555555555555</li>
+		<li class="second" style="width:300px;height:30px;background-color:gold;display:none"></li>
+	</ul>
+</body>
+<script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$('ul li.first').on('click',function(){
+			// $(this).next('li.second').css('display','block').siblings('li.second').css('display','none');
+
+			$(this).next('li.second').toggle().siblings('li.second').css('display','none');
+		});
+	})
+</script>
+</html>

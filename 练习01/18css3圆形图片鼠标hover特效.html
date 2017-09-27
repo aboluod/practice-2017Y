@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"  rel="stylesheet">
+        <style>
+            .demo{padding:2em 0;background:lightblue;}
+            .our-team{overflow:hidden;border-radius:50%;position:relative;background:#f5f5f5;}
+            .our-team img{width:100%;height:auto;position:relative;right:0;transition:all 0.4s ease-in-out 0s;}
+            .our-team:hover img{right:60%;}
+            .our-team .team-content{width:80%;height:100%;background:pink;padding:20% 30px 0;position:absolute;top:0;right:-80%;transition:all 0.4s ease-in-out 0s;}
+            .our-team:hover .team-content{right:0;}
+        </style>
+    </head>
+    <body>
+        <div class="demo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="our-team">
+                            <img src="html/images/leader_original01.png" alt="">
+                            <div class="team-content">
+                                <h3 class="title">辜校旭</h3>
+                                <p class="description">复星金服金融总裁</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="our-team">
+                            <img src="html/images/leader_original02.png" alt="">
+                            <div class="team-content">
+                                <h3 class="title">申志华</h3>
+                                <p class="description">复星金服金融副总裁</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="our-team">
+                            <img src="html/images/leader_original03.png" alt="">
+                            <div class="team-content">
+                                <h3 class="title">袁伟民</h3>
+                                <p class="description">复星金服金融总裁助理</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+<script>
+    var a = 10;
+    var b = 20;
+    add(20);
+    function add(x){
+        return x+a+b;
+    }
+    var c = add(20);
+    alert(add(20));
+</script>
+    </body>
+</html>

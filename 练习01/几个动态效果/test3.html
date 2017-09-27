@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		/*.div1,.div3{animation: bounceInDown 1 1s ease-out;}
+		.div2,.div4{animation: bounceInUp 1 1s ease-out;}*/
+		
+		.animated {
+		  -webkit-animation-duration: 1s;
+		  animation-duration: 1s;
+		  -webkit-animation-fill-mode: both;
+		  animation-fill-mode: both;
+		  animation-delay:1s;
+		}
+
+
+		@-webkit-keyframes flipInY {
+		  from {
+		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		    -webkit-animation-timing-function: ease-in;
+		    animation-timing-function: ease-in;
+		    opacity: 0;
+		  }
+
+		  40% {
+		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		    -webkit-animation-timing-function: ease-in;
+		    animation-timing-function: ease-in;
+		  }
+
+		  60% {
+		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		    opacity: 1;
+		  }
+
+		  80% {
+		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+		    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+		  }
+
+		  to {
+		    -webkit-transform: perspective(400px);
+		    transform: perspective(400px);
+		  }
+		}
+
+		@keyframes flipInY {
+		  from {
+		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		    -webkit-animation-timing-function: ease-in;
+		    animation-timing-function: ease-in;
+		    opacity: 0;
+		  }
+
+		  40% {
+		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		    -webkit-animation-timing-function: ease-in;
+		    animation-timing-function: ease-in;
+		  }
+
+		  60% {
+		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		    opacity: 1;
+		  }
+
+		  80% {
+		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+		    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+		  }
+
+		  to {
+		    -webkit-transform: perspective(400px);
+		    transform: perspective(400px);
+		  }
+		}
+
+		.flipInY {
+		  -webkit-backface-visibility: visible !important;
+		  backface-visibility: visible !important;
+		  -webkit-animation-name: flipInY;
+		  animation-name: flipInY;
+		}
+
+	</style>
+</head>
+<body style="height:100%;">
+	<div style="width:1200px;margin:0 auto;height:100%;">
+		<div class="animated flipInY" style="width:200px;height:100px;background:gold;margin:300px 20px;float:left;animation-delay: 1.06667s;"></div>
+		<div class="animated flipInY" style="width:200px;height:100px;background:pink;margin:300px 20px;float:left;animation-delay: 0.2s;"></div>
+		<div class="animated flipInY" style="width:200px;height:100px;background:green;margin:300px 20px;float:left;animation-delay: 0.8s;"></div>
+		<div class="animated flipInY" style="width:200px;height:100px;background:blue;margin:300px 20px;float:left;animation-delay: 1.33s;"></div>
+	</div>
+</body>
+</html>

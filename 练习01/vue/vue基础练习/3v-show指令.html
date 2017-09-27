@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-show指令</title>
+</head>
+<body>
+    <div id="app">
+        <h1>hello,vue.js</h1>
+        <h1 v-show="yes">Yes!</h1>
+        <h1 v-show="no">No!</h1>
+        <h1 v-show="age >= 25">Age: {{ age }}</h1>
+        <h1 v-show="name.indexOf('jack') >= 0">Name: {{ name }}</h1>
+    </div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+    <!--指令v-if与v-show的区别：v-if不渲染标签元素，v-show渲染标签元素了只是给这个元素加了display属性，true的时候display:block;false的时候display:none;-->
+
+
+    var vm=new Vue({
+        el: '#app',
+        data: {
+            yes: true,
+            no: false,
+            age: 28,
+            name: 'aaa'
+        }
+    })
+</script>
+</html>

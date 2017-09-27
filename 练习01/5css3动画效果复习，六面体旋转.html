@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>六面体动画</title>
+    <style>
+        *{padding:0;margin:0;}
+        li{list-style:none;}
+        .wrapper{width:600px;height:600px;margin:0 auto;}
+        .demo-container{position:relative;width:600px;height:600px;perspective:1800px;/*定义视距*/}
+        @keyframes bigMove {
+            0% {
+                transform: rotateX(-25deg) rotateY(-45deg);
+            }
+            20% {
+                transform: rotateX(-25deg) rotateY(135deg);
+            }
+            100% {
+                transform: rotateX(-25deg) rotateY(135deg);
+            }
+        }
+
+        @keyframes smallMove {
+            0% {
+                transform: rotateX(-25deg) rotateY(-45deg);
+            }
+            20% {
+                transform: rotateX(-25deg) rotateY(-405deg);
+            }
+            100% {
+                transform: rotateX(-25deg) rotateY(-405deg);
+            }
+        }
+
+        .box{width:300px;height:300px;position:absolute;left:50%;top:50%;margin-left:-150px;margin-top:-150px;transform:rotateX(-25deg) rotateY(-45deg);transform-style:preserve-3d;animation:bigMove 5s infinite ease-in-out 2s;}
+        .box li{width:300px;height:300px;box-shadow:0 0 5px #98b5e0;text-align:center;font:28px/300px "Microsoft YaHei";color:#fff;position:absolute;top:0;left:0;background: radial-gradient(circle,rgba(165,193,235,.5) 0%, rgba(134,167,218,.5) 50%)}
+        .box .front{transform:translateZ(150px);}
+        .box .back{transform: translateZ(-150px) rotateY(180deg);}
+        .box .left{transform: translateX(-150px) rotateY(-90deg);}
+        .box .right{transform: translateX(150px) rotateY(90deg);}
+        .box .top{transform: translateY(-150px) rotateX(90deg);}
+        .box .bottom{transform: translateY(150px) rotateX(-90deg);}
+
+        /*inner*/
+        .inner{width:100px;height:100px;position:absolute;left:50%;top:50%;margin-left:-50px;margin-top:-50px;transform-style:preserve-3d;transform:rotateX(-25deg) rotateY(-45deg);animation: smallMove 5s infinite ease-in-out 2s;}
+        .inner li{width:100px;height:100px;box-shadow: 0 0 2px #0b65ea;text-align:center;font:28px/100px "Microsoft YaHei";color:#fff;position:absolute;top:0;left:0;background:radial-gradient(circle,rgba(84,153,218,.5) 0%,rgba(73,130,215,.5) 50%)}
+        .inner .front{transform:translateZ(50px);}
+        .inner .back{transform:translateZ(-50px) rotateY(180deg)}
+        .inner .left{transform:translateX(-50px) rotateY(-90deg)}
+        .inner .right{transform:translateX(50px) rotateY(90deg)}
+        .inner .top{transform:translateY(-50px) rotateX(90deg)}
+        .inner .bottom{transform:translateY(50px) rotateX(-90deg)}
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="demo-container">
+            <ul class="box">
+                <li class="front">前</li>
+                <li class="back">后</li>
+                <li class="left">左</li>
+                <li class="right">右</li>
+                <li class="top">上</li>
+                <li class="bottom">下</li>
+            </ul>
+            <ul class="inner">
+                <li class="front"></li>
+                <li class="back"></li>
+                <li class="left"></li>
+                <li class="right"></li>
+                <li class="top"></li>
+                <li class="bottom"></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

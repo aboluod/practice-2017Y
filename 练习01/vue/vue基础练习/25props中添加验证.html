@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>props中添加验证</title>
+</head>
+<body>
+    <div id="app">
+        <child :text="message"></child>
+    </div>
+</body>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+//    Vue.component('child',{
+//        props: ['text'],
+//        template: '<div>{{ text }}</div>'
+//    })
+
+
+//   props中添加验证
+    Vue.component('child',{
+        props: {
+            text: {
+                type: Boolean,      //在控制台会报错，因为message是字符串类型
+                required: true
+            }
+        },
+        template: '<div>{{ text }}</div>'
+    })
+
+
+
+    new Vue({
+        el: '#app',
+        data: function(){
+            return{
+                message: 'hello mr.magoo'
+            }
+        }
+    })
+</script>
+
+</html>

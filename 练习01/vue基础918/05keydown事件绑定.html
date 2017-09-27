@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+
+    <div id="box">
+        <input type="text" @keydown="say()">
+    </div>
+
+    <!--获取按下的键盘码-->
+    <div id="box2">
+        <input type="text" @keydown="say2($event)">
+    </div>
+
+    <!--方向键判断-->
+    <div id="box3">
+        <input type="text" @keyup.left="key1()">
+        <input type="text" @keyup.right="key2()">
+        <input type="text" @keyup.up="key3()">
+        <input type="text" @keyup.down="key4()">
+    </div>
+
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    window.onload = function() {
+        var c = new Vue({
+            el: '#box',
+            methods: {
+                say: function () {
+                    alert('键盘按下啦！');
+                }
+            }
+        })
+    }
+       //获取按下的键盘码
+        window.onload = function(){
+            var c2 = new Vue({
+                el: '#box2',
+                methods: {
+                    say2: function(ev){
+                        alert(ev.keyCode);
+                    }
+                }
+            })
+        }
+
+        //判断方向键
+        window.onload = function(){
+            var c2 = new Vue({
+                el: '#box3',
+                methods: {
+                    key1: function(){
+                        alert('左方向键');
+                    },
+                    key2: function(){
+                        alert('右方向键');
+                    },
+                    key3: function(){
+                        alert('上方向键');
+                    },
+                    key4: function(){
+                        alert('下方向键');
+                    }
+                }
+            })
+        }
+</script>
+</body>
+</html>

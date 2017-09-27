@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>alert警告</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-default/index.css">
+</head>
+<body>
+    <div id="app">
+        <template>
+            <el-alert title="成功提示的文案" type="success" description="文字说明文字说明文字说明文字说明" show-icon></el-alert>
+            <el-alert title="消息提示的文案" type="info" description="文字说明文字说明文字说明文字说明" show-icon></el-alert>
+            <el-alert title="警告提示的文案" type="warning" description="文字说明文字说明文字说明文字说明" show-icon></el-alert>
+            <el-alert title="错误提示的文案" type="error" description="文字说明文字说明文字说明文字说明" show-icon></el-alert>
+        </template>
+    </div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    new Vue().$mount('#app');
+</script>
+</html>

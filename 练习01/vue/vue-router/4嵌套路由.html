@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>嵌套路由</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>
+            <router-link to="/user/foo">/user/foo</router-link>
+            <br>
+            <router-link to="/user/foo/profile">/user/foo/profile</router-link>
+            <br>
+            <router-link to="/user/foo/posts">/user/foo/posts</router-link>
+        </p>
+        <router-view></router-view>
+    </div>
+
+    <script>
+        //定义组件
+        const User = {
+            template: '<div class="user"><h2>User {{ $route.params.id }}</h2><router-view></router-view></div>'
+        }
+        const UserHome = { template: '<div>Home</div>'}
+        const UserProfile = { template: '<div>Profile</div>'}
+        const UserPosts = { template: '<div>Posts</div>'}
+
+        //定义路由以及映射路由
+        const router = new VueRouter({
+            routes: [
+                { path: '/user/:id',component: User,
+                  children: [
+                      { path: '', component: UserHome },
+                      { path: 'profile', component:　UserProfile },
+                      { path: 'posts', component: UserPosts }
+                  ]
+                }
+            ]
+        })
+
+        //创建以及挂载实例
+        const app = new Vue({ router: router }).$mount('#app')
+    </script>
+</body>
+</html>

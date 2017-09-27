@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>layout布局-分栏间隔</title>
+    <link rel="stylesheet" href="base.css">
+</head>
+<body>
+    <!--知识点1：row组件提供gutter属性来指定每一栏之间的间隔，默认间隔为0；-->
+    <!--知识点2：vue中， $mount的用法：如果 Vue 实例在实例化时没有收到 el 选项，则它处于“未挂载”状态，没有关联的 DOM 元素。可以使用 vm.$mount() 手动地挂载一个未挂载的实例。-->
+
+    <div id="app">
+        <el-row :gutter="20">
+            <el-col :span="6"><div class="grid-content bg-purple">一</div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple">二</div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple">三</div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple">四</div></el-col>
+        </el-row>
+    </div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+<script>
+    //$mount的用法：如果 Vue 实例在实例化时没有收到 el 选项，则它处于“未挂载”状态，没有关联的 DOM 元素。可以使用 vm.$mount() 手动地挂载一个未挂载的实例。
+    new Vue().$mount('#app')
+</script>
+</html>

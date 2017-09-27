@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>radio单选框</title>
+    <link rel="stylesheet" href="base.css">
+</head>
+<body>
+    <div id="app">
+        <template>
+            <el-radio class="radio" v-model="radio" label="男">男</el-radio>
+            <el-radio class="radio" v-model="radio" label="女">女</el-radio>
+        </template>
+
+        <!--禁用状态-->
+        <template>
+            <el-radio v-model="radio1" label="禁用" disabled>备选项</el-radio>
+            <el-radio v-model="radio1" label="选中且禁用" disabled>备选项</el-radio>
+        </template>
+
+        <!--单选框组-->
+        <template>
+            <el-radio-group v-model="radio2">
+                <el-radio :label="3">备选项</el-radio>
+                <el-radio :label="6">备选项2</el-radio>
+                <el-radio :label="9">备选项3</el-radio>
+            </el-radio-group>
+        </template>
+    </div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    var Main = {
+        data :function() {
+            return {
+//                radio: '女'
+//                radio1: '选中且禁用'
+                radio2: 6   //这里的值是number类型的，不是字符串类型的
+            };
+        }
+    }
+
+    var Ctor = Vue.extend(Main);
+    new Ctor().$mount("#app");
+</script>
+</html>

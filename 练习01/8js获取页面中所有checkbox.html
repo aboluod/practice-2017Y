@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript获取页面中所有的checkbox</title>
+</head>
+<body>
+    <form action="">
+        <input type="checkbox">篮球 <br>
+        <input type="checkbox">足球 <br>
+        <input type="checkbox">乒乓球 <br>
+        <input type="checkbox">羽毛球 <br>
+        <input type="checkbox">排球 <br>
+        <input type="radio" name="gender">男 <br>
+        <input type="radio" name="gender">女
+    </form>
+
+    <script>
+        //获取所有的input标签对象
+        var inputs = document.getElementsByTagName('input');
+        //初始化空数组，用来存放checkbox对象
+        var checkboxArray = [];
+        for(var i=0;i<inputs.length;i++){
+            var obj=inputs[i];
+            console.log(inputs[i].type);
+            if(obj.type=='checkbox'){
+                checkboxArray.push(obj);
+            }
+        }
+        console.log(checkboxArray);
+    </script>
+</body>
+</html>

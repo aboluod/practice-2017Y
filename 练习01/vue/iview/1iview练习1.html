@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iview练习1</title>
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+</head>
+<body>
+<div id="app">
+    <template>
+        <i-row>
+            <i-col span="12">col-12</i-col>
+            <i-col span="12">col-12</i-col>
+        </i-row>
+        <br>
+        <Row>
+            <Col span="8">col-8</Col>
+            <Col span="8">col-8</Col>
+            <Col span="8">col-8</Col>
+        </Row>
+        <br>
+        <Row>
+            <Col span="6">col-6</Col>
+            <Col span="6">col-6</Col>
+            <Col span="6">col-6</Col>
+            <Col span="6">col-6</Col>
+        </Row>
+    </template>
+</div>
+</body>
+<script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+<script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+<script>
+    new Vue({
+        el: '#app'
+    })
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for显示过滤</title>
+</head>
+<body>
+    <!--<div id="app">-->
+        <!--<ul>-->
+            <!--<li v-for="n in even(numbers)">{{ n }}</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+
+    <!--使用method方法-->
+    <div id="app2">
+        <ul>
+            <li v-for="n in even(numbers)">{{ n }}</li>
+        </ul>
+    </div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app2',
+        data: {
+            numbers: [1,2,3,4,5]
+        },
+        methods: {
+            even: function(numbers){
+                return numbers.filter(function(number){
+                    return number % 2 !== 0
+                })
+            }
+        }
+
+    })
+
+
+//    new Vue({
+//        el: '#app',
+//        data: {
+//            numbers: [1,2,3,4,5]
+//        },
+//        computed: {
+//            evenNumbers: function(){
+//                return this.numbers.filter(function(number){
+//                    return number % 2 === 0;
+//                })
+//            }
+//        }
+//    })
+</script>
+</html>

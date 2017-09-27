@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Message消息提示</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-default/index.css">
+</head>
+<body>
+    <div id="app">
+        <template>
+            <el-button :plain="true" @click="open">消息</el-button>
+            <el-button :plain="true" @click="open2">错误</el-button>
+        </template>
+    </div>
+</body>
+<!--先引入 Vue-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--引入组件库-->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    var Main = {
+        methods: {
+            open(){
+                this.$message({
+                    showClose: true,
+                    message: '恭喜你，这是一条成功消息',
+                    duration: 0
+                });
+            },
+            open2(){
+                this.$message({
+                    showClose: true,
+                    message: '错了哦，这是一条错误消息',
+                    type: 'error'
+                })
+            }
+
+        }
+    }
+    var Ctor = Vue.extend(Main);
+    new Ctor().$mount('#app');
+</script>
+</html>

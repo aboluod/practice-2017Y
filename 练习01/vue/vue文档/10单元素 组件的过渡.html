@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单元素/组件的过渡</title>
+    <style>
+        .fade-enter-active,.fade-leave-active {
+            transition: opacity 1.5s;
+        }
+        .fade-enter,.fade-leave-active {
+            opacity: 0;
+        }
+        /*第二个例子的css*/
+        .bounce-enter-active {
+            animation: bounce-in 2.5s;
+        }
+        .bounce-leave-active {
+            animation: bounce-out 2.5s;
+        }
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        @keyframes bounce-out {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--<div id="demo">-->
+        <!--<button v-on:click="show = !show">Toggle</button>-->
+        <!--<transition name="fade">-->
+            <!--<p v-if="show">hello</p>-->
+        <!--</transition>-->
+    <!--</div>-->
+
+
+
+    <!--css动画-->
+    <div id="example">
+        <button @click="show = !show">Toggle show</button>
+        <transition name="bounce">
+            <p v-if="show" style="font-size:30px;">Look at me!</p>
+        </transition>
+    </div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#example',
+        data: {
+            show: true
+        }
+    })
+
+
+
+//    new Vue({
+//        el: '#demo',
+//        data: {
+//            show: true
+//        }
+//    })
+</script>
+</html>
