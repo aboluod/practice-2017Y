@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>复选框</title>
+	<style>
+		/*知识点： css3中before与after选择器，兄弟选择器，checked选择器*/
+		.checkbox {
+			position:relative;
+			height:30px;
+		}
+		/*第一步：*/
+		/*先把原来的默认的checkbox框用opacity隐藏了*/
+		.checkbox input[type='checkbox'] {
+			position:absolute;
+			left:0;
+			top:0;
+			width:20px;
+			height:20px;
+			opacity:0;
+		}
+		.checkbox label {
+			position: absolute;
+			left: 30px;
+			top: 0;
+			height: 20px;
+			line-height: 20px;
+		}
+		/*第二步*/
+		/*用label的before和after画出复选框的轮廓*/
+		/*通过label的before与after实现圆点未选中效果，设置before为圆圈，after实现选中后对勾的效果，设置after为长方形，顺时针旋转45deg，设置右边框与下边框，色值为白色。*/
+		.checkbox label:before {
+			content: '';
+			position: absolute;
+			left: -30px;
+			top: 0;
+			width: 20px;
+			height: 20px;
+			border: 1px solid #ddd;
+			border-radius: 50%;
+			transition: all 0.3s ease;
+		}
+		.checkbox label:after {
+			content: '';
+			position: absolute;
+			left: -22px;
+			top: 3px;
+			width: 6px;
+			height: 12px;
+			border: 0;
+			border-right: 1px solid #fff;
+			border-bottom: 1px solid #fff;
+			background: #fff;
+			transform: rotate(45deg);
+			transition: all 0.3s ease;
+		}
+		/*第三步*/
+		/*通过填颜色，复选框就实现了*/
+		/*css3选择器+，取得某个元素紧邻的元素*/
+		/*checked选择器*/
+		/*添加input选中时的效果，设置before与after的背景色相同，由于after元素有背景色为白色的边框，即可实现相关效果*/
+		.checkbox input[type='checkbox']:checked + label:before {
+			background: #4cd764;
+			border-color: #4cd764;
+		}
+		.checkbox input[type='checkbox']:checked + label:after {
+			background: #4cd764;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+	为了扩大checkbox、radio的点击范围，我们经常用label和checkbox、radio相连，现在也可以运用这个关系，把样式加在label上，隐藏checkbox、radio（设置透明度，不能display:none，否则关联会失效）,来实现自己写的样式的radio、checkbox
+	 -->
+
+
+	<div class="checkbox">
+		<input type="checkbox" id="checkbox1" name="checkboox[]">
+		<label for="checkbox1">星融资</label>
+	</div>
+	<div class='checkbox'> 
+		<input type='checkbox' id='checkbox2' name='checkboox[]'> 
+		<label for='checkbox2'>星商贷</label> 
+	</div> 
+	<div class='checkbox'> 
+		<input type='checkbox' id='checkbox3' name='checkboox[]' checked> 
+		<label for='checkbox3'>POS贷</label> 
+	</div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3实现开关选择按钮</title>
+	<style>
+		/*:before :after是伪类*/
+		/*::before ::after是伪元素*/
+
+
+		/*通过checkbox选中与否的状态与兄弟选择器实现相关功能*/
+		/*1.设置开关大小*/
+		.swift-btn {
+			position: relative;
+			display: inline-block;
+			width: 50px;
+			height: 25px;
+		}
+		/*2.设置checkbox属性为不可见状态*/
+		.swift-btn input[type="checkbox"]{
+			position: absolute;
+			width: 50px;
+			height: 25px;
+			opacity: 0;
+			z-index: 9;
+			outline: none;
+		}
+		/*3.设置按钮样式，通过伪类元素实现，并添加过渡动画*/
+		/*switch开关的外框*/
+		.swift-btn > label {
+			position: absolute;
+			display: inline-block;
+			width: 50px;
+			height: 25px;
+			border-radius: 25px;
+			border: 1px solid #dcdcdc;
+			transition: all 0.3s ease;
+		}
+		/*label:before我理解是放文字的*/
+		.swift-btn > label:before {
+			content: '开';
+			position: absolute;
+			display: inline-block;
+			left: 30px;
+			width: 25px;
+			height: 25px;
+			border-radius: 20px;
+			line-height: 25px;
+			text-indent: -1px;
+		}
+		/*label:after是那个运动小球*/
+		.swift-btn > label:after {
+			content: '';
+			position: absolute;
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			left: 0;
+			top: 1px;
+			/*border-radius: 1px;*/
+			box-shadow: 2px 0 1px #ccc;
+			border-radius: 15px;
+			background-color: #fff;
+			/*动画执行过程以及时间*/
+			transition: left 0.3s ease;
+		}
+		/*4,设置input选中后的样式*/
+		.swift-btn input[type='checkbox']:checked + label {
+			border: 1px solid gold;
+			background-color: gold;
+		}
+		.swift-btn input[type='checkbox']:checked + label::before {
+			content: '关';
+			display: inline-block;
+			color: #000;
+			text-indent: -25px;
+		}
+		.swift-btn input[type='checkbox']:checked + label::after{
+			left: 26px;
+			top: 1px;
+			width: 24px;
+			height: 24px;
+			border: 0;
+			box-shadow: none;
+			box-sizing: content-box;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- 
+	为了扩大checkbox、radio的点击范围，我们经常用label和checkbox、radio相连，现在也可以运用这个关系，把样式加在label上，隐藏checkbox、radio（设置透明度，不能display:none，否则关联会失效）,来实现自己写的样式的radio、checkbox
+	 -->
+
+
+	<span class="add-item-status swift-btn">
+		<input type="checkbox" name="" id="checkbox">
+		<label class="" for="checkbox"></label>
+	</span>
+
+
+	<!-- 
+	判断是否选中可通过判断chekbox选中状态来判断，如通过jQuery判断方法：
+	var status = $('#checkbox').is(':checked');
+	-->
+
+</body>
+</html>

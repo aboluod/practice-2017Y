@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单选框</title>
+	<style>
+		.radio-check {
+			position: relative;
+			height: 35px;
+		}
+		/*element>element 选择器用于选取带有特定父元素的元素。
+		注释：如果元素不是父元素的直接子元素，则不会被选择。
+		例：div>p{background:gold;} 选取父元素是div元素的每个p元素，并设置其背景色
+		*/
+		.radio-check > input {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 20px;
+			height: 20px;
+			opacity: 0;
+		}
+		.radio-check > label {
+			position: absolute;
+			left: 30px;
+			line-height: 20px;
+			top: 0;
+		}
+		/*通过伪类:before与:after,实现选中效果*/
+		/*初始化before与after状态*/
+		.radio-check > label:before {
+			content: '';
+			position: absolute;
+			left: -30px;
+			top: 0;
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			border: 1px solid #ddd;
+			transition: all 0.3s ease;
+		}
+		.radio-check > label:after {
+			content: '';
+			position: absolute;
+			left: -30px;
+			top: 0;
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			margin-top: 6px;
+			margin-left: 6px;
+			transition: all 0.3s ease;
+		}
+		/*利用radio选中状态的:checked伪类选择器与兄弟选择器，实现选中效果*/
+		.radio-check input[type="radio"]:checked + label:before {
+			border-color: #4cd764;
+		}
+		.radio-check input[type="radio"]:checked + label:after {
+			background: #4cd764;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- 
+	为了扩大checkbox、radio的点击范围，我们经常用label和checkbox、radio相连，现在也可以运用这个关系，把样式加在label上，隐藏checkbox、radio（设置透明度，不能display:none，否则关联会失效）,来实现自己写的样式的radio、checkbox
+	 -->
+	
+
+	<div class="radio-check">
+		<input type="radio" name="xsd" id="xsd1">
+		<label for="xsd1">星商贷</label>
+	</div>
+	<div class="radio-check">
+		<input type="radio" name="xsd" id="xsd2">
+		<label for="xsd2">星融贷</label>
+	</div>
+	<div class="radio-check">
+		<input type="radio" name="xsd" id="xsd3">
+		<label for="xsd3">POS贷</label> 
+	</div>
+</body>
+</html>
