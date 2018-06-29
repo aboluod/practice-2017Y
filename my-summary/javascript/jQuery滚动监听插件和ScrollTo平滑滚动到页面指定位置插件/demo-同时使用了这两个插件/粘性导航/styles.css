@@ -1,0 +1,282 @@
+/* ========================css初始化代码=================================== */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+} 
+/* remember to highlight inserts somehow! */
+ins {
+    text-decoration: none;
+}
+del {
+    text-decoration: line-through;
+}
+ 
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* ========================页面代码=================================== */
+
+body {
+	font-size: 14px;
+	font-family: Arial, sans-serif;
+	color: #666;
+	/* em是相对单位，相对font-size。 */
+	/* 一个段落首行缩进两个字，可以使用text-indent: 2em; */
+	padding: 2em 0;
+	background: #e8e9e4;
+}
+.wrapper {
+	position: relative;
+	width: 900px;
+	margin: 0 auto;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 0 8px 0 rgba(0,0,0,.1);
+	
+}
+header {
+	padding: 2em 2em 0;
+}
+h1 {
+	font-size: 6em;
+	color: #40bfe8;
+	font-weight: bold;
+	margin-bottom: .3em;
+	letter-spacing: -0.07em;
+}
+.nav-container {
+	margin-bottom: 2em;
+	width: 100%;
+	margin-right: -2em;
+}
+.nav-container nav {
+	box-sizing: border-box;
+	width: 928px;
+	padding: 1em 3em;
+	margin-left: -14px;
+	background-color: rgba(132,138,106,0.7);
+	/* 4个圆角的任一个圆角的写法，后面的值一般是一个。如果是两个的话，第一个代表水平方向，第二个代表垂直方向 */
+	border-top-left-radius: 1em 0.5em;
+	border-top-right-radius: 1em 0.5em;
+}
+.nav-container nav li {
+	display: inline;
+}
+.nav-container nav li a {
+	text-decoration: none;
+	font-size: 1.2em;
+	color: #2c2e24;
+	font-weight: bold;
+	display: inline-block;
+	text-align: center;
+	width: 5em;
+	padding: .5em 1em;
+	border-radius: 2px;
+}
+.nav-container nav li a:hover,.nav-container nav li a.selected {
+	color: #fff;
+	background: #40bfe8;
+}
+.nav-container nav .nav-left,.nav-container nav .nav-right {
+	position: absolute;
+	bottom: -14px;
+	height: 14px; 
+	width: 14px;
+	background: rgba(132,138,106,0.7);	
+} 
+.nav-container nav .nav-left {
+	left: 0;
+	border-bottom-left-radius: 100% 50%;
+}
+.nav-container nav .nav-right {
+	right: 0;
+	border-bottom-right-radius: 100% 50%;
+}
+.nav-container nav .nav-left:after,.nav-container nav .nav-right:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	width: 66%;
+	height: 66%;
+	background: #000;
+}
+.nav-container nav .nav-left:after {
+	right: 0;
+	border-top-left-radius: 100% 50%;
+	border-bottom-left-radius: 100% 50%;
+}
+.nav-container nav .nav-right:after {
+	left: 0;
+	border-top-right-radius: 100% 50%;
+	border-bottom-right-radius: 100% 50%;
+}
+section {
+	padding: 0 2em 1em;
+}
+img {
+	max-width: 100%;
+	margin-bottom: 1em;
+}
+.wrapper .column {
+	float: left;
+	display: inline;
+	width: 50%;
+	padding: 0;
+	box-sizing: border-box;
+}
+.wrapper .left {
+	padding-right: 1em;
+}
+.wrapper .right {
+	padding-left: 1em;
+}
+h3 {
+	font-size: 2em;
+	font-weight: bold;
+	line-height: 1.3em;
+	margin: 0 0 .5em 0;
+	color: #40bfe8;
+	letter-spacing: -0.07em;
+}
+p {
+	font-size: 1em;
+	line-height: 1.5em;
+	margin: 0 0 1.5em 0;
+}
+hr {
+	width: 100%;
+	display: block;
+	height: 1px;
+	border: none;
+	outline: none;
+	clear: both;
+	background: #ccc;
+	margin: 1em 0;
+}
+footer {
+	padding: 1em;
+	font-size: 0.9em;
+}
+a {
+	color: #40bfe8;
+}
+a:hover {
+	text-decoration: none;
+}
+.sticky {
+	position: fixed;
+	top: 15px;
+	animation: thedrop 1s;
+}
+.sticky .nav-above {
+	position: absolute;
+	top: -15px;
+	left: 1em;
+	right: 1em;
+	height: 15px;
+	background: linear-gradient(top, red 0%, gold 80%);
+}
+.wrapper:before,.wrapper:after {
+	content: '';
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+	clear: both;
+	zoom: 1;
+}
+
+/* 媒体查询 */
+/* pad */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	.wrapper {
+		width: 700px;
+	}
+	.nav-container nav {
+		width: 728px;
+	}
+}
+
+/* mobile */
+/* mobile width of 320px */
+@media only screen and (max-width: 767px) {
+	.wrapper {
+		width: 300px;
+	}
+	.wrapper .column {
+		float: none;
+		width: 100%;
+	}
+	.nav-container nav {
+		width: 328px;
+	}
+	h1 {
+		font-size: 2.5em;
+		text-align: center;
+	}
+	h3 {
+		font-size: 1.3em;
+		text-align: center;
+	}
+}
+
+/* mobile width of 480px */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	.wrapper {
+		width: 400px;
+	}
+	.nav-container nav {
+		width: 428px;
+	}
+	h1 {
+		font-size: 3.5em;
+	}
+	h3 {
+		font-size: 1.7em;
+	}
+}
+
+
+
+
+
+
