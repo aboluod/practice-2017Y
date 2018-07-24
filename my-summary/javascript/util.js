@@ -143,3 +143,40 @@ function isEmpty(val) {
     num.substring(num.length-(4*i+3));  
     return (((sign)?'':'-') + num + '.' + cents);  
 }
+
+/**
+ * 检验密码强度(提示：<正规项目中密码是由>8位以上大写、小写字母、数字及符号中的两种或以上组合)
+ * 根据返回的数字来判断密码的强弱，如果为0，代表密码设置的不合格
+ * sValue 密码
+ */
+ function checkPwdStrong(sValue) {
+      let modes = 0
+      // 通过前端验证的再进行验证
+      // 不合格 返回0
+      // 任何字符数的两类字符组合，弱， 返回值为1
+      // 10位字符数以下的三类组合，中 ，返回值为2
+      // 10位字符数以上的三类组合，强，返回值为3
+
+      // 每多一种类型的密码形式，modes就加1
+      if (sValue.length < 8) return modes
+      if (/\d/.test(sValue)) modes++ // 数字
+      if (/[a-z]/.test(sValue)) modes++ // 小写
+      if (/[A-Z]/.test(sValue)) modes++ // 大写
+      if (/\W/.test(sValue)) modes++ // 特殊字符
+
+      // 逻辑处理
+      switch (modes) {
+        case 1:
+          return 0
+        case 2:
+          return 1
+        case 3:
+          if (sValue.length < 10) {
+            return 2
+          } else {
+            return 3
+          }
+        case 4:
+          return 3
+      }
+}
