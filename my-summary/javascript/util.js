@@ -57,6 +57,15 @@ function isMobile(source) {
 }
 
 /** 
+ * 手机号码格式化(格式化后显示成4位一个空格隔开)
+ * source是一个手机号字符串
+ */ 
+function formatMobile(source) {
+    var val = source.replace(/\B(?=(?:\d{4})+$)/g, ' ')
+    return val;
+}
+
+/** 
  * 获取今天是 ****年**月**日 星期几 
  */  
 function getTodayDate(){  
