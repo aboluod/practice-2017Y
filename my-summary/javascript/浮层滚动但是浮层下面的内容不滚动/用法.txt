@@ -1,0 +1,11 @@
+参考文档：
+https://www.zhangxinxu.com/wordpress/2016/12/web-mobile-scroll-prevent-window-js-css/
+
+
+收集的这两个差别不大：
+一个是vue版本的
+一个是jQuery版本的
+
+
+具体使用方法可以参考文档
+
