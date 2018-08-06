@@ -9,3 +9,14 @@ https://www.zhangxinxu.com/wordpress/2016/12/web-mobile-scroll-prevent-window-js
 
 具体使用方法可以参考文档
 
+
+还有一段css代码：
+.noscroll,
+.noscroll body {
+    overflow: hidden;
+}
+.noscroll body {
+    position: relative;
+}
+
+参考文档里面有具体用法

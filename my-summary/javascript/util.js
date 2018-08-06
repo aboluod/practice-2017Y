@@ -1,5 +1,6 @@
 /** 
- * 校验时间格式 
+ * 校验时间格式
+ * 例：checkTime('23:26:08')返回true, checkTime('27:66:08')返回false
  */  
 function checkTime(timevale) {  
     var regex = /^(([0-1][0-9])|([2][0-4]))(\:)[0-5][0-9](\:)[0-5][0-9]$/g;  
@@ -180,3 +181,64 @@ function isEmpty(val) {
           return 3
       }
 }
+
+/**对Date的扩展，将 Date 转化为指定格式的String
+*月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， 
+*年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字) 
+*例子： 
+*(new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423 
+*(new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18 
+*/
+Date.prototype.Format = function (fmt) {
+ var o = {
+     "M+": this.getMonth() + 1, //月份 
+     "d+": this.getDate(), //日 
+     "H+": this.getHours(), //小时 
+     "m+": this.getMinutes(), //分 
+     "s+": this.getSeconds(), //秒 
+     "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+     "S": this.getMilliseconds() //毫秒 
+ };
+ if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+ for (var k in o)
+ if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+ return fmt;
+}
+
+/**日期加减法  date参数为计算开始的日期，days为需要加的天数   
+*格式:addDate('2017/1/11',20) 
+*/
+function addDate(date,days){ 
+    var d=new Date(date); 
+    d.setDate(d.getDate()+days); 
+    var m=d.getMonth()+1; 
+    return d.getFullYear()+'/'+m+'/'+d.getDate(); 
+}
+
+/** 获取url 全部参数 返回对象
+* 例子：http://www.fosunling.com/demo.html?a=fjk&b=123&c=900900  调用函数后是{a:'fjk',b:'123',c:'900900'}
+*/
+function getRequest() {
+    var url = location.search; //获取url中"?"符后的字串  
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for (var i = 0; i < strs.length; i++) {
+            theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
+}
+
+/** 通过指定KEY 获取URL里的参数值
+* 例子：http://www.fosunling.com/demo.html?a=fjk&b=123&c=900900  调用函数getParams(a)返回fjk
+**/
+function getParams(key) {
+    var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) {
+        return decodeURI(r[2]);
+    }
+    return null;
+};
