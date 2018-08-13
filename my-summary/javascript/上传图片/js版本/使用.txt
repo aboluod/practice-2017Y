@@ -1,0 +1,9 @@
+参考vue版本的封装来的，后期可以再完善些
+
+使用的时候：只要在页面中调用upload函数，传入参数即可
+
+另外GitHub上一个已经封装好的上传图片插件：
+https://github.com/CommanderXL/imgResize
+功能比较完善。
+
+缺点：不兼容安卓4.4.x等系统
