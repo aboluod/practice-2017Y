@@ -242,3 +242,49 @@ function getParams(key) {
     }
     return null;
 };
+
+/**
+* 姓名脱敏处理 例：复星星---->**星
+* @param val 姓名
+*/
+function formatName(val) {
+  if (!val) {
+    return ''
+  }
+  return val.replace(/.(?=.)/g, '*')
+}
+
+/**
+* 手机脱敏处理 例：15023456789 --> 150****6789
+* @param val 手机号
+*/
+function formatMobileStart(val) {
+  if (!val) {
+    return ''
+  }
+  return val.substring(0, 3)+'****'+val.substring(val.length - 4, val.length)
+}
+
+/**
+* 银行卡号脱敏处理 例：6212262201023557228---->**************7228
+* @param val 银行卡号
+*/
+function formatBankCardStart(val) {
+  if (!val) {
+    return ''
+  }
+  return '**************'+val.substring(val.length - 4, val.length)
+}
+
+/**
+* 身份证脱敏处理 例：610523201806263674---->6****************3
+*                例：610523201806263674---->610523********3674
+* @param val 身份证号
+*/
+function formatIdCard(val) {
+  if (!val) {
+    return ''
+  }
+  // return val.substring(0, 1)+'****************'+val.substring(val.length - 1, val.length)
+  return val.substring(0, 6)+'********'+val.substring(val.length - 4, val.length)
+}
