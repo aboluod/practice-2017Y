@@ -288,3 +288,49 @@ function formatIdCard(val) {
   // return val.substring(0, 1)+'****************'+val.substring(val.length - 1, val.length)
   return val.substring(0, 6)+'********'+val.substring(val.length - 4, val.length)
 }
+
+/**
+ * 手机格式化限制长度13088889999-> 130 8888 9999
+ * @param value 手机号
+ */
+function formatMobileLimit(value) {
+    value = value.replace(/\D/g, '')
+    if (value.length > 11) {
+        value = value.substring(0, 11)
+    }
+    if (value.length === 11) {
+        value = formatPhone(value)
+    }
+    return value
+}
+
+/**
+ * 手机格式化13088889999-> 130 8888 9999
+ * @param mobile 手机号
+ */
+function formatPhone(mobile) {
+    return mobile && mobile.replace(/\B(?=(?:\d{4})+$)/g, ' ')
+}
+
+/**
+ * 银行卡号格式化限制长度 6444 1213 2123 1234 1212
+ * @param value 银行卡号
+ */
+function formatBankCardLimit(value) {
+    value = value.replace(/\D/g, '')
+    if (value.length >= 20) {
+        value = value.substring(0, 20)
+    }
+    if (value.length >= 16 && value.length <= 20) {
+        value = value.replace(/(\d{4})(?=\d)/g, '$1 ')
+    }
+    return value
+}
+
+/**
+ * 银行卡号格式化 6444 1213 2123 1234 1212
+ * @param val 银行卡号
+ */
+function formatBankNum(val) {
+    return val && val.replace(/\B(?=(?:\d{4})+$)/g, ' ')
+}
