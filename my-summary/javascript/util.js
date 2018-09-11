@@ -53,7 +53,7 @@ function isTelephone(source) {
  * 验证是否为手机号码
  */  
 function isMobile(source) {  
-    var regex = /^((13|14|15|17|18)[0-9]{1}\d{8})$/;  
+    var regex = /^((13|14|15|17|18|16|19)[0-9]{1}\d{8})$/;  
     return regex.test(source); 
 }
 
