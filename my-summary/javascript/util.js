@@ -127,7 +127,7 @@ function isEmpty(val) {
 } 
 
 /** 
- * 数字四舍五入保留两位小数，并且整数部分3为以,分隔
+ * 数字四舍五入保留两位小数，并且整数部分3位以,分隔
  */ 
  function formatCurrency(num) {
     num = num.toString().replace(/\$|\,/g,'');  
@@ -143,6 +143,17 @@ function isEmpty(val) {
     num = num.substring(0,num.length-(4*i+3))+','+  
     num.substring(num.length-(4*i+3));  
     return (((sign)?'':'-') + num + '.' + cents);  
+}
+
+/*
+* 数字整数部分3位以“,”分隔
+*/ 
+function format_number(n){ 
+    var b=parseInt(n).toString();   
+    var len=b.length;   
+    if(len<=3){return b;}   
+    var r=len%3;   
+    return r>0?b.slice(0,r)+","+b.slice(r,len).match(/\d{3}/g).join(","):b.slice(r,len).match(/\d{3}/g).join(","); 
 }
 
 /**
@@ -333,4 +344,23 @@ function formatBankCardLimit(value) {
  */
 function formatBankNum(val) {
     return val && val.replace(/\B(?=(?:\d{4})+$)/g, ' ')
+}
+
+/**
+  * 选择的日期和当前日期比较
+  * @param dateVal的格式'2018-10-10',也可以是其他的，那么函数里面就要修改
+  */
+function compareDate(dateVal) {
+    // 获得当天日期的时间戳
+    var today = new Date();
+    var todayStamp = new Date(today.getFullYear(), (today.getMonth() + 1), today.getDate()).getTime();
+    // 获得插入日期的时间戳
+    var dateArrs = dateVal.split('-');
+    var dateStamp = new Date(dateArrs[0], dateArrs[1], dateArrs[2]).getTime();
+    // 比较
+    if ( dateStamp < todayStamp ) {
+        return false;
+    } else {
+        return true;
+    }
 }
