@@ -364,3 +364,55 @@ function compareDate(dateVal) {
         return true;
     }
 }
+
+// 根据身份证号判断性别
+function getSexByIdNum(idNum){
+  var sexno,sex
+  // 18位身份证号码的第17位判断性别，如果是奇数代表是男，如果是偶数代表女
+  // 15位身份证号码的最后一位判断性别，如果是奇数代表是男，如果是偶数代表女
+  if(idNum.length==18){
+      sexno=idNum.substring(16,17)
+  }else if(idNum.length==15){
+      sexno=idNum.substring(14,15)
+  }else{
+      alert("错误的身份证号码，请核对！")
+      return false
+  }
+  var tempid=sexno%2;
+  if(tempid==0){
+      sex='女'
+  }else{
+      sex='男'
+  }
+  return sex
+}
+
+// 根据身份证号拿到年龄
+function getAgeByIdNum(idNum){
+  var len = (idNum + "").length;
+  if (len == 0) {
+      alert('请输入合法的身份证号')
+  } else {
+      if ((len != 15) && (len != 18))//身份证号码只能为15位或18位其它不合法
+      {
+        alert('请输入合法的身份证号')
+      }
+  }
+  var strBirthday = "";
+  if (len == 18)//处理18位的身份证号码从号码中得到生日和性别代码
+  {
+      strBirthday = idNum.substr(6, 4) + "/" + idNum.substr(10, 2) + "/" + idNum.substr(12, 2);
+  }
+  if (len == 15) {
+      strBirthday = "19" + idNum.substr(6, 2) + "/" + idNum.substr(8, 2) + "/" + idNum.substr(10, 2);
+  }
+  //时间字符串里，必须是“/”
+  var birthDate = new Date(strBirthday);
+  var nowDateTime = new Date();
+  var age = nowDateTime.getFullYear() - birthDate.getFullYear();
+  //再考虑月、天的因素;.getMonth()获取的是从0开始的，这里进行比较，不需要加1
+  if (nowDateTime.getMonth() < birthDate.getMonth() || (nowDateTime.getMonth() == birthDate.getMonth() && nowDateTime.getDate() < birthDate.getDate())) {
+      age--;
+  }
+  return age;
+}

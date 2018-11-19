@@ -1,0 +1,13 @@
+select标签去掉默认的小三角型
+select::-ms-expand { display: none; }
+.no-triangle { 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  -webkit-tap-highlight-color: #fff;
+  -moz-tap-highlight-color: #fff;
+  -ms-tap-highlight-color: #fff;
+  -o-tap-highlight-color: #fff;
+  outline: 0;
+}
