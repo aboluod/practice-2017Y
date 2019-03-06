@@ -350,19 +350,27 @@ function formatBankNum(val) {
   * 选择的日期和当前日期比较
   * @param dateVal的格式'2018-10-10',也可以是其他的，那么函数里面就要修改
   */
-function compareDate(dateVal) {
-    // 获得当天日期的时间戳
-    var today = new Date();
-    var todayStamp = new Date(today.getFullYear(), (today.getMonth() + 1), today.getDate()).getTime();
-    // 获得插入日期的时间戳
-    var dateArrs = dateVal.split('-');
-    var dateStamp = new Date(dateArrs[0], dateArrs[1], dateArrs[2]).getTime();
-    // 比较
-    if ( dateStamp < todayStamp ) {
-        return false;
-    } else {
-        return true;
+function compareDate(dataVal) {
+    if (!dataVal || dataVal === '') {
+        return false
     }
+    // 获得当天日期的时间
+    var today = new Date();
+    var todayValue = new Date(today.getFullYear(), today.getMonth(), today.getDate())
+    // 获得选择日期的时间
+    var dateStamp = new Date(dataVal).getTime();
+    return dateStamp < todayValue.getTime() ? false : true
+}
+
+// 两个日期比较
+function compareTwoDate(date1, date2) {
+    if (!date1 || date1 === '' || !date2 || date2 === '') {
+        return false
+    }
+    // 获得选择日期的时间戳
+    var dateStamp1 = new Date(date1).getTime();
+    var dateStamp2 = new Date(date2).getTime();
+    return dateStamp1 < dateStamp2 ? true : false
 }
 
 // 根据身份证号判断性别
